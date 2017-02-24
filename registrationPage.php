@@ -16,22 +16,22 @@ outputBannerNavigation("Register");
     <p>The email must be a valid email address</p>
 
     <div id ="registrationPara">
-        <form id="registrationDetails" onsubmit = "return false">
+        <form action="registerCustomer.php" id="registrationDetails" method="post">
             Username:<br>
-            <span id="usernameError2" class="hidden"></span><input type="text" id="usernameInput" title="Enter a username" autofocus> <span id="usernameError" class="error"></span>
+            <span id="usernameError2" class="hidden"></span><input type="text" id="usernameInput" name="username" title="Enter a username" autofocus> <span id="usernameError" class="error"></span>
             <br>
             Password:<br>
-            <span id="passwordError2" class = "hidden"></span><input type="password" id="passwordInput" title="Enter a password">  <span id="passwordError" class="error"></span>
+            <span id="passwordError2" class = "hidden"></span><input type="password" id="passwordInput" name="password" title="Enter a password">  <span id="passwordError" class="error"></span>
             <br>
             Email:<br>
-            <span id="emailError2" class = "hidden"></span><input type="email" id="emailInput" title="Enter an email address" required><span id="emailError" class="error"></span>
+            <span id="emailError2" class = "hidden"></span><input type="email" id="emailInput" name="email" title="Enter an email address" required><span id="emailError" class="error"></span>
             <br>
             Phone number:<br>
-            <span id="numberError2" class="hidden"></span><input type="text" id="numberInput" title="Enter a phonenumber"> <span id="numberError" class="error"></span>
+            <span id="numberError2" class="hidden"></span><input type="text" id="numberInput" name="number" title="Enter a phonenumber"> <span id="numberError" class="error"></span>
             <br>
-            <input type ="submit" value="Register" title = "Register your details" onclick="setup()">
-
+            <input type ="submit" value="Register" title = "Register your details">
         </form>
+		
         <p id="result" class="error"></p>
 
         <p>Already have an account?
@@ -41,16 +41,9 @@ outputBannerNavigation("Register");
 
     <input type ="submit" value="Erase details" onclick="eraseUsers()">
     <input type ="submit" value="View details" onclick="viewUsers()">
-
     <input type ="submit" value = "logout" onclick="logout()">
 
     <script src="JS/registrationPage.js"></script>
-
-
-
-
-
-
     <script>updateBanner();</script>  
 
   
@@ -62,5 +55,3 @@ video("Watch");
 outputFooter();
 //Output the footer
 ?>
-
-
