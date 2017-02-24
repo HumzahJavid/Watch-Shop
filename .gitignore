@@ -1,0 +1,8 @@
+#experimental files, to be added to main branch
+/testing
+
+#stored in archived branch
+/archived
+
+#netbeans project files
+/nbproject
