@@ -1,0 +1,66 @@
+<?php
+//Include the PHP functions to be used on the page 
+include('common.php');
+//outputs a BodyTag with onload 
+//Output header and navigation 
+outputHeader("Group 22 Watch Website - Registration");
+outputBodyTag();
+outputBannerNavigation("Register");
+//by luck I enclosed function in speech marks thus resolving fatal error message(call to undefined function)
+?>
+<div id="content">
+    <script src="banner.js"></script>
+    <p>On this page you can register an account, all fields are required. You must observe the following rules:</p>
+    <p>The username must be between 5 and 7 characters long</p>
+    <p>The password must be between 7 and 12 characters long</p>
+    <p>The email must be a valid email address</p>
+
+    <div id ="registrationPara">
+        <form id="registrationDetails" onsubmit = "return false">
+            Username:<br>
+            <span id="usernameError2" class="hidden"></span><input type="text" id="usernameInput" title="Enter a username" autofocus> <span id="usernameError" class="error"></span>
+            <br>
+            Password:<br>
+            <span id="passwordError2" class = "hidden"></span><input type="password" id="passwordInput" title="Enter a password">  <span id="passwordError" class="error"></span>
+            <br>
+            Email:<br>
+            <span id="emailError2" class = "hidden"></span><input type="email" id="emailInput" title="Enter an email address" required><span id="emailError" class="error"></span>
+            <br>
+            Phone number:<br>
+            <span id="numberError2" class="hidden"></span><input type="text" id="numberInput" title="Enter a phonenumber"> <span id="numberError" class="error"></span>
+            <br>
+            <input type ="submit" value="Register" title = "Register your details" onclick="setup()">
+
+        </form>
+        <p id="result" class="error"></p>
+
+        <p>Already have an account?
+            <a id="hyperlink" href="loginPage.html" title="Click here to login"> Click here to login </a></p>
+        <!-- this button takes you to login page, in case you are on reg page by mistake. -->
+    </div>
+
+    <input type ="submit" value="Erase details" onclick="eraseUsers()">
+    <input type ="submit" value="View details" onclick="viewUsers()">
+
+    <input type ="submit" value = "logout" onclick="logout()">
+
+    <script src="JS/registrationPage.js"></script>
+
+
+
+
+
+
+    <script>updateBanner();</script>  
+
+  
+</div> <!-- end content -->
+
+<?php
+video("Watch");
+//chooses video (using filename ) and uses it as animated background
+outputFooter();
+//Output the footer
+?>
+
+

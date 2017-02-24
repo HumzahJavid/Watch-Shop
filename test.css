@@ -1,0 +1,342 @@
+/* 
+    Created on : 23-Oct-2016, 12:12:55
+    Author     : Humzah
+*/
+
+/*common to all pages*/
+
+.button {
+    display: inline-block;
+    float: right;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0.5px solid;
+    border-color: #ccc;
+    border-radius: 5px;
+
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 19px;
+    line-height: 1.5;
+	}
+	
+	.searchButton {
+    display: inline-block;
+    /* padding: 6px 12px; */
+    float: none;
+	  text-align: center;
+    vertical-align: middle;
+	
+    /* border-radius: 0px; */
+	
+    border-color: #ccc;
+    border: 0.5px solid;
+    /* font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0.5px solid;
+    border-color: #ccc;
+    border-radius: 0px;
+	 */
+border-radius: 0px 5px 5px 0px;
+height: 40px;
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 19px;
+    /* line-height: 1.5; */}
+
+	
+button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+}
+
+#container {
+    color: white;
+    min-height:100%;
+    position:relative;
+	width:80%; margin:0px auto;
+    /* width:80%; margin:0px auto;
+	For easier viewing of product page comment out this line 
+	
+	
+    /*width:760px; margin:0px auto;
+    awesome line to center the website gives it a professional look, was actually trying to force banner to bottom of screen */
+
+}
+/*Defines css for main div (container) (encompasses everything else in the body tags)*/
+
+header {
+    font-family: "BebasNeue,Arial,Helvetica,sans-serif";
+    color: #ffffff;
+    text-align: left;
+    padding-bottom: 30px;
+    height: 100px;
+}
+
+
+#navigationBar {
+    list-style-type: none;
+    /*removes bullet points*/
+    /*margin-bottom: 100px;*/
+    /*padding-bottom: 300px; /* can be stretched down to 1000px cover page maybe easier reading of text */
+    padding: 0; 
+    /*keeps nav bar left aligned don't remove*/
+    overflow: hidden;
+    background-color: #333333;
+    /*black, tending towards grey*/
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/*
+li:last-child {
+	float: right;
+    border-right: none;
+}*/
+
+.active {
+    background-color: green;
+}
+
+li a:hover:not(.active) {
+    background-color: yellow;
+    color: black;
+}
+/* defines what should happen when hovering over a navigation button
+/link but excludes active button */
+/*Defines the title and navigation bar (collectively known as the header)*/
+
+#banner {
+    margin-top: -13px;
+    margin-bottom: 50px;
+}
+.loggedIn {
+    text-align: center;
+    height: 20px;
+    background-color: greenyellow;
+    font-weight: bold;
+	color: black;
+}
+
+.notLoggedIn {
+    text-align: center;
+    height: 20px;
+    background-color: red;
+    font-weight: bold;
+}
+/*these two classes are used with the banner div, which informs the user about log in status
+semantically part of the header (as it comes before the content), but is not placed within the header tags due to css conflict)
+*/
+
+
+#content {
+    text-align: center;
+    padding-bottom: 10px;
+    min-height: 305px;
+    color: white;
+	
+	width:100%;
+	margin:0px auto;	
+
+    background-color: rgba(201,201,201,  0.5);
+    /*equivalent to background-color: #c9c9c9; with 50% opacity*/
+    border-radius: 25px;
+    /*make the grey background slightly rounded*/
+}
+
+#footer {
+    color: white;
+    text-align: center;
+    height: 20px;
+    background-color: #335ee6;
+    font-weight: bold;
+}
+/*Content is padded at the bottom with a size == to the footer, ensures footer stays at bottom*/
+
+
+/*The following is used in specific pages but is kept in one css file to make the php echo easier */
+
+/*specific to leaderBoard page*/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#leaderBoard {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+/* end specific to leaderBoard page*/
+
+
+/* specific to login and registration pages*/
+#hyperlink {
+    color:blue;
+    text-decoration:none;
+}
+/*prevents hyper links from becoming underlined and purple*/
+
+.hidden {
+   color: rgb(201,201,201);
+   opacity: 0;   
+} 
+/*used to hide the left error message of the dual error messages (always on the left of text box*/
+
+.error {
+    color:red;
+}
+
+/*the colour for the other half of the dual error messages (always on the right of text box)*/
+/* end specific to login and registration pages*/
+
+
+/*for slide show*/
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: 150px;
+    padding: 18px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+/* Next & previous buttons */
+
+.prev{
+    background-color:red;
+    left: 0;
+}
+/* Position the "previous button" to the left*/
+
+.next {
+    background-color: blue;
+    right: 0;
+}
+/* Position the "next button" to the right */
+
+.slideshowContainer{
+    text-align: center;
+    width:100%;
+    height:100%;
+    margin:0px auto;
+}
+
+.dot {
+    text-align:center;
+    cursor:pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.activeDot, .dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+.grid_element {
+  display: inline-block;
+  width: 400px;
+  height:400px;
+}
+/*
+.cartBadge
+    {
+    width:20px;
+    height:20px;
+    border-radius:50px;
+    font-size:15px;
+    color:white;
+    line-height:20px;
+    font-weight: bold;
+    text-align:center;
+    background:red
+    } 
+	
+	/* for use with shopping cart
+	<div class="cartBadge">1</div>*/
+.cartBadge
+    {
+		
+    list-style-type: none;
+    width:20px;
+    height:20px;
+    border-radius:20px;
+    font-size:15px;
+    color:white;
+    line-height:20px;
+    font-weight: bold;
+    text-align:center;
+    background:red;
+	vertical-align: top;
+    } 
+	
+	#banner {
+    margin-top: 39px;
+    margin-bottom: 50px;
+}
+
+#Search{
+	width: 300px;
+	padding: 15px;
+	border: 1px solid #607d8b;
+	border-radius: 15px;
+	
+}
+#submit{
+	padding: 17px;
+	background: #607d8b;
+	border: 1px solid #607d8b;
+	color: White;
+	margin-left: -17px; 
+}
+
