@@ -13,7 +13,30 @@ outputBannerNavigation("CMS");
     <p>THE CMS</p>
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">	
+<style> 
+	.grid_element {
+	  width: 200px;
+	  height:200px;
+	}
 	
+	.CMSButton {
+	display: inline-block;
+     float: none;
+
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0.5px solid;
+    border-color: #ccc;
+    border-radius: 5px;
+
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 19px;
+    line-height: 1.5;
+	}
+</style>
 	ADD Product
 			<br>
 			<form action="addProduct.php" method="post">
