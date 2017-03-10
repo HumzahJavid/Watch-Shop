@@ -12,7 +12,7 @@ outputBodyTag("checkLogin()");
 <div id="content">
     <div id ="loginPara">
         <p>To purchase a product you must be logged in, you will be prompted to login when checking out if you have not done so already</p>
-        <form action="loginCustomer.php" id="loginDetails" method="post">
+        <form action="loginCMS.php" id="loginDetails" method="post">
             Email:<br>
             <span id="emailError2" class="hidden"></span><input type="email" id="emailInput" name="email" title="Enter an email address"><span id="emailError" class="error"></span>
             <br>

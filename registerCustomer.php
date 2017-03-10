@@ -11,14 +11,14 @@ $db = $mongoClient->ecommerce;
 $collection = $db->customers;
 //Select a collection 
 
-$name= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+$username= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 $number = filter_input(INPUT_POST, 'number', FILTER_SANITIZE_STRING);
 //Extract the data that was sent to the server
 
 $dataArray = [
-    "username" => $name, 
+    "username" => $username, 
     "email" => $email, 
     "password" => $password,
 	"number" => $number
