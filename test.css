@@ -288,22 +288,7 @@ table#leaderBoard {
   width: 400px;
   height:400px;
 }
-/*
-.cartBadge
-    {
-    width:20px;
-    height:20px;
-    border-radius:50px;
-    font-size:15px;
-    color:white;
-    line-height:20px;
-    font-weight: bold;
-    text-align:center;
-    background:red
-    } 
-	
-	/* for use with shopping cart
-	<div class="cartBadge">1</div>*/
+
 .cartBadge
     {
 		
@@ -340,3 +325,24 @@ table#leaderBoard {
 	margin-left: -17px; 
 }
 
+.grid_element {
+	  width: 200px;
+	  height:200px;
+	}
+	
+	.CMSButton {
+	display: inline-block;
+	float: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0.5px solid;
+    border-color: #ccc;
+    border-radius: 5px;
+
+    color: #333;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 19px;
+    line-height: 1.5;
+	}
