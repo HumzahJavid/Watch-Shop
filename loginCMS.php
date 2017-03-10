@@ -44,7 +44,7 @@
     
      
 	
-  header('Refresh: 1, url = /server/CMS.php');
+  header('Refresh: 1, url = /CMS.php');
   echo '<h1> Redirecting.....</h1>';
     //Inform web page that login is successful
    
