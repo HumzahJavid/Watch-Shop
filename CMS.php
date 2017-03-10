@@ -57,16 +57,15 @@ outputBannerNavigation("CMS");
     </button>
 	
 			<br><br>
-			DELETE Product/s
+			VIEW Product/s
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
+			<form action="ViewProduct.php" method="post">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="_id" placeholder="Product ID">
 	        <br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Quantity">
-			<br>
-		 <button type="button" class="CMSButton" onclick="">
+		    <input type="submit" value="VIEW Product" title="VIEW" class="CMSButton"> 	
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <i class="fa fa-times"></i></span> Delete Product
-    </button>
+        <i class="fa fa-times"></i></span>
+		</form>
 			<br>
 			<br>
 			EDIT Product
