@@ -8,28 +8,7 @@ outputBodyTag();
 outputBannerNavigation("CMS");
 ?>
 <style> 
-	.grid_element {
-	  width: 200px;
-	  height:200px;
-	}
 	
-	.CMSButton {
-	display: inline-block;
-	float: none;
-	/*font-weight: bold;*/
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 0.5px solid;
-    border-color: #ccc;
-    border-radius: 5px;
-
-    color: #333;
-    background-color: #fff;
-    padding: 5px 10px;
-    font-size: 19px;
-    line-height: 1.5;
-	}
 </style>
 <!-- Contents of the page -->
 <div id="content">
