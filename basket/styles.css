@@ -1,0 +1,38 @@
+/*for basket prototype*/
+
+table,th,td {
+    
+		border: 1px solid black;
+    
+		text-align: left;
+    
+		padding: 3px;
+
+}
+
+
+h2 {
+    
+		margin-bottom: 
+		0px;
+
+}
+
+
+button.delete {
+    
+		font-weight: bold;
+    
+		color: red;
+
+}
+
+
+img.addButtonImg{
+    
+		width: 20px;
+  
+		height: 20px;
+
+}
+

@@ -131,9 +131,10 @@ function video($file) {
 
 function searchbar(){
 	echo'<center>
-	        <input style="width:400px;height:20px;float:top" id="Search" type="text" name="search" placeholder="What are you looking for?">
+	        <form action="Search-Product.php" method="get">
+	        <input style="width:400px;height:20px;float:top" id="Search" type="text" name="name" placeholder="What are you looking for?">
 	        <input type="submit" value="GO" id="submit">	 
-	
+	        </form>
 	     </center>';
 
 	
