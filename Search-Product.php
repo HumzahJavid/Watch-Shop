@@ -6,21 +6,18 @@ $mongoClient = new MongoClient();
 $db = $mongoClient->ecommerce;
 
 //Extract the data that was sent to the server
-$search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
+$search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 
-echo"$search";
 //Create a PHP array with our search criteria
 $findCriteria = [
-    '$text' => [ '$search' => $search], 
+    '$text' => [ '$search' => $search_strings], 
  ];
  
  
  $Val = $db-> products -> find($findCriteria);
  
- var_dump($Val);
- 
 echo "<h1>Results</h1>";
-/*
+
 foreach($Val as $pro){
    echo "<p>";
    echo "Product name: " . $pro['name'];
@@ -31,7 +28,7 @@ foreach($Val as $pro){
    echo"<br>";
    echo "</p>";
 }
-*/
+
 //Close the connection
 $mongoClient->close();
  
