@@ -15,7 +15,8 @@ $findCriteria = [
  
  
  $Val = $db-> products -> find($findCriteria);
- 
+try{
+    
 echo "<h1>Results</h1>";
 
 foreach($Val as $pro){
@@ -27,6 +28,12 @@ foreach($Val as $pro){
    echo " Product quantity: " . $pro['quantity'];
    echo"<br>";
    echo "</p>";
+}
+    
+}
+
+catch(Exception $e){
+    echo'Error cannot identify the data please try again';
 }
 
 //Close the connection
