@@ -1,18 +1,28 @@
 <?php
 //Include the PHP functions to be used on the page 
-include('common.php');
+include('../common.php');
 //outputs a BodyTag with onload 
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - Login");
-outputBannerNavigation("Login");
+outputBannerNavigation("CMS - Login");
 outputBodyTag("checkLogin()");
+
+
+    session_start();
+    //Start session management
+	
+if (isset($_SESSION['loggedInAdminEmail'])){
+		$admin = $_SESSION['loggedInAdminEmail'];
+		header('Refresh: 0, url = /CMS/loginCMS.php');
+		//If the admin is already logged in, redirect to page which displays "redirect message"
+	}
 ?>
 
 <!-- Contents of the page -->
 <div id="content">
     <div id ="loginPara">
-        <p>To purchase a product you must be logged in, you will be prompted to login when checking out if you have not done so already</p>
-        <form action="loginCMS.php" id="loginDetails" method="post">
+        <p>To access the CMS, please login as an administrator</p>
+        <form action="/CMS/loginCMS.php" id="loginDetails" method="post">
             Email:<br>
             <span id="emailError2" class="hidden"></span><input type="email" id="emailInput" name="email" title="Enter an email address"><span id="emailError" class="error"></span>
             <br>
@@ -24,7 +34,7 @@ outputBodyTag("checkLogin()");
     </div> 
     <p id ="loginFailure" class="error"></p>
 
-    <script src="JS/loginPage.js"></script>
+    <script src="/JS/loginPage.js"></script>
 
     <p>Don't have an account? <a id="hyperlink" href="registrationPage.php" title="Click here to create an account">Sign up now</a></p>
 </div> <!-- end content -->
