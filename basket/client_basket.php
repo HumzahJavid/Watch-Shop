@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Basket Demo</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="basket.js"></script>
+        <link rel="stylesheet" type="text/css" href="/test.css">
+        <script src="/JS/basket.js"></script>
     </head>
     <body>
         <h1>Shopping Website</h1>
@@ -27,7 +27,7 @@
                 echo '<td>' . $document["_id"] . "</td>";
                 echo '<td>' . $document["name"] . "</td>";
                 echo '<td><button onclick=\'addToBasket("' . $document["_id"] . '", "' . $document["name"] . '")\'>';
-                echo '<img class="addButtonImg" src="addToBasket.png"></button></td>';
+                echo '<img class="addButtonImg" src="/images/addToBasket.png"></button></td>';
                 echo '</tr>';
             }
             echo '</table>';
