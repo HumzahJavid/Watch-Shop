@@ -1,7 +1,15 @@
 <?php
-
     session_start();
     //Start session management
+	
+	if (isset($_SESSION['loggedInAdminEmail'])){
+		$admin = $_SESSION['loggedInAdminEmail'];
+		header('Refresh: 3, url = /CMS/CMS.php');
+		echo "<h1> Already logged in Redirecting.....$admin </h1>";
+		return;
+	}
+	//If the admin is already logged in display message, redirect to CMS page
+
 	  
 	$email= filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);  
@@ -20,7 +28,8 @@
 	//Find all of the customers that match  this criteria
     
     if($cursor->count() == 0){
-        echo 'Email not recognized.';
+		header('Refresh: 3, url = /CMS/CMSLoginPage.php');
+		echo '<h1> Email not recognized.... Try again</h1>';
         return;
     }
     else if($cursor->count() > 1){
@@ -30,35 +39,32 @@
 	//Check that there is exactly one customer
     
    
-    $customer = $cursor->getNext();
+    $admin = $cursor->getNext();
     //Get customer
     
-    if($customer['password'] != $password){
-        echo 'Password incorrect.';
-        return;
+    if($admin['password'] != $password){
+		header('Refresh: 3, url = /CMS/CMSLoginPage.php');
+		echo '<h1> Password Incorrect... Try again</h1>';
+		return;
     }
 	//Check password
      
-    $_SESSION['loggedInUserEmail'] = $email;
+    $_SESSION['loggedInAdminEmail'] = $email;
     //Start session for this user
     
      
 	
-  header('Refresh: 1, url = /CMS.php');
-  echo '<h1> Redirecting.....</h1>';
-    //Inform web page that login is successful
-   
+  header('Refresh: 3, url = /CMS/CMS.php');
+  echo '<h1> Login successful Redirecting.....</h1>';
+    //Login successful, redirect to CMS
+	
     $mongoClient->close();
     //Close the connection
 	
-
- // header("Location: ..); 
     exit;
-//Echo result back to user
 
 $mongoClient->close();
 //Close the connection
-
 
 
 

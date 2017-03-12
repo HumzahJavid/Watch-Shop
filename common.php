@@ -11,7 +11,7 @@ function outputHeader($title) {
 
           <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
           <!-- My animated favicon only works in firefox! -->
-          <link rel="stylesheet" type="text/css" href="test.css">
+          <link rel="stylesheet" type="text/css" href="/test.css">
           <!-- Link to external style sheet -->
           </head>';
 }
@@ -56,7 +56,7 @@ function outputBannerNavigation($pageName) {
           </header> <!-- end header -->
           <div id="banner" class="notLoggedIn">
           </div> <!-- end banner div -->
-          <script src="JS/banner.js"></script>
+          <script src="/JS/banner.js"></script>
           <script>updateBanner();</script>';
 }
 
@@ -123,7 +123,7 @@ function video($file) {
 
     echo '
     <video autoplay loop preload = "auto" id = "bgvid" poster="images/videoMissing.png">
-    <source src = "images/' . $file . '.mp4" type = "video/mp4">
+    <source src = "/images/' . $file . '.mp4" type = "video/mp4">
     </video>';
 
 

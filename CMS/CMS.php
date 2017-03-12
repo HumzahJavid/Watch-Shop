@@ -1,6 +1,6 @@
 <?php
 //Include the PHP functions to be used on the page 
-include('common.php');
+include('../common.php');
 //outputs a BodyTag with onload 
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - CMS");
