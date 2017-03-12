@@ -1,15 +1,12 @@
 <?php
 //Include the PHP functions to be used on the page 
 include('../common.php');
-//outputs a BodyTag with onload 
+
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - CMS");
 outputBodyTag();
 outputBannerNavigation("CMS");
 ?>
-<style> 
-	
-</style>
 <!-- Contents of the page -->
 <div id="content">
     <p>THE CMS</p>
@@ -17,22 +14,21 @@ outputBannerNavigation("CMS");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">	
 	
 	ADD Product
-		<br>
-		<form action="/CMS/addProduct.php" method="post">
-		<br>
+			<br>
+			<form action="/CMS/addProduct.php" method="post">
+			 <input style="width:400px;height:20px" id="Search" type="text" name="ID" placeholder="Product ID">
+			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
 	        <br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="price" placeholder="Product Price">
-		<br>
+			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="quantity" placeholder="Product Quantity">
-		<br>
+			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="url" placeholder="Product Image URL">
-		<br>
-		<input style="width:400px;height:20px" id="Search" type="text" name="test" placeholder="Keywords">
-		<br>
-		<!--<button type="submit" value ="ADD Product" class="CMSButton">-->
-		<!-- the value attribute is not being used, and the title tag is not valid for a button I've commented it out to demonstrate that it works without them, 					we might be able to use the value attribute to make our form more efficient (which is what you were mentioning on Friday)-->
-		<button type="submit" class="CMSButton" value="">
+			<br>
+			<input style="width:400px;height:20px" id="Search" type="text" name="test" placeholder="Keywords">
+			<br>
+			<button type="submit" class="CMSButton" value="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-plus"></i></span>  Add Product
 		</button> 

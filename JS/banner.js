@@ -1,5 +1,4 @@
-function updateBanner() {
-    var loggedInEmail = sessionStorage.getItem("loggedInEmail");
+function updateBanner(loggedInEmail) {
     var banner = document.getElementById("banner");
     if (loggedInEmail === null) {
         banner.className = "notLoggedIn";

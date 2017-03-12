@@ -1,12 +1,11 @@
 <?php
 //Include the PHP functions to be used on the page 
 include('common.php');
-//outputs a BodyTag with onload 
+ 
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - Registration");
 outputBodyTag();
 outputBannerNavigation("Register");
-//by luck I enclosed function in speech marks thus resolving fatal error message(call to undefined function)
 ?>
 <div id="content">
     <script src="JS/banner.js"></script>
