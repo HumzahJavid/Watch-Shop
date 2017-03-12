@@ -18,7 +18,7 @@ outputBannerNavigation("CMS");
 	
 	ADD Product
 			<br>
-			<form action="addProduct.php" method="post">
+			<form action="/CMS/addProduct.php" method="post">
 			 <input style="width:400px;height:20px" id="Search" type="text" name="ID" placeholder="Product ID">
 			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
@@ -40,7 +40,7 @@ outputBannerNavigation("CMS");
 	        <br><br>
 			VIEW Product/s
 			<br>
-			<form action="ViewProduct.php" method="post">
+			<form action="/CMS/viewProduct.php" method="post">
 	        <input style="width:400px;height:20px" id="Search" type="text" name="_id" placeholder="Product ID">
 	        <br>
 		    <button type="submit" class="CMSButton" value=""> 	
@@ -53,7 +53,7 @@ outputBannerNavigation("CMS");
 			EDIT Product
 			<br>
 						
-			<form action="editProduct.php" method="post">
+			<form action="/CMS/editProduct.php" method="post">
 			<input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
 			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Name">
@@ -74,12 +74,12 @@ outputBannerNavigation("CMS");
 			DELETE Product/s
 			<br>
 			
-			<form action="deleteProduct.php" method="post">
+			<form action="/CMS/deleteProduct.php" method="post">
 	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
 	        <br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Quantity">
 			<br>
-		 <button type="button" class="CMSButton" onclick="">
+		 <button type="submit" class="CMSButton" onclick="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-times"></i></span> Delete Product
     </button>
@@ -89,7 +89,7 @@ outputBannerNavigation("CMS");
 			VIEW Customer orders
 			<br>
 			
-			<form action="viewCustomerOrder.php" method="post">
+			<form action="/CMS/viewCustomerOrder.php" method="post">
 			<input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
 			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Name">
