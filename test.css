@@ -20,38 +20,26 @@
     padding: 5px 10px;
     font-size: 19px;
     line-height: 1.5;
-	}
-	
-	.searchButton {
+}
+
+.searchButton {
     display: inline-block;
     /* padding: 6px 12px; */
     float: none;
-	  text-align: center;
-    vertical-align: middle;
-	
-    /* border-radius: 0px; */
-	
-    border-color: #ccc;
-    border: 0.5px solid;
-    /* font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
     text-align: center;
     vertical-align: middle;
-    cursor: pointer;
-    border: 0.5px solid;
+
     border-color: #ccc;
-    border-radius: 0px;
-	 */
-border-radius: 0px 5px 5px 0px;
-height: 40px;
+    border: 0.5px solid;
+    border-radius: 0px 5px 5px 0px;
+    height: 40px;
     color: #333;
     background-color: #fff;
     padding: 5px 10px;
     font-size: 19px;
-    /* line-height: 1.5; */}
+}
 
-	
+
 button:hover {
     color: #333;
     background-color: #e6e6e6;
@@ -61,11 +49,10 @@ button:hover {
     color: white;
     min-height:100%;
     position:relative;
-	width:80%; margin:0px auto;
+    width:80%; margin:0px auto;
     /* width:80%; margin:0px auto;
-	For easier viewing of product page comment out this line 
-	
-	
+        For easier viewing of product page comment out this line 
+    
     /*width:760px; margin:0px auto;
     awesome line to center the website gives it a professional look, was actually trying to force banner to bottom of screen */
 
@@ -84,13 +71,11 @@ header {
 #navigationBar {
     list-style-type: none;
     /*removes bullet points*/
-    /*margin-bottom: 100px;*/
     /*padding-bottom: 300px; /* can be stretched down to 1000px cover page maybe easier reading of text */
     padding: 0; 
     /*keeps nav bar left aligned don't remove*/
     overflow: hidden;
     background-color: #333333;
-    /*black, tending towards grey*/
 }
 
 li {
@@ -107,12 +92,6 @@ li a {
     text-decoration: none;
 }
 
-/*
-li:last-child {
-	float: right;
-    border-right: none;
-}*/
-
 .active {
     background-color: green;
 }
@@ -126,15 +105,16 @@ li a:hover:not(.active) {
 /*Defines the title and navigation bar (collectively known as the header)*/
 
 #banner {
-    margin-top: -13px;
+    margin-top: 39px;
     margin-bottom: 50px;
 }
+
 .loggedIn {
     text-align: center;
     height: 20px;
     background-color: greenyellow;
     font-weight: bold;
-	color: black;
+    color: black;
 }
 
 .notLoggedIn {
@@ -153,9 +133,9 @@ semantically part of the header (as it comes before the content), but is not pla
     padding-bottom: 10px;
     min-height: 305px;
     color: white;
-	
-	width:100%;
-	margin:0px auto;	
+
+    width:100%;
+    margin:0px auto;	
 
     background-color: rgba(201,201,201,  0.5);
     /*equivalent to background-color: #c9c9c9; with 50% opacity*/
@@ -199,8 +179,8 @@ table#leaderBoard {
 /*prevents hyper links from becoming underlined and purple*/
 
 .hidden {
-   color: rgb(201,201,201);
-   opacity: 0;   
+    color: rgb(201,201,201);
+    opacity: 0;   
 } 
 /*used to hide the left error message of the dual error messages (always on the left of text box*/
 
@@ -211,15 +191,9 @@ table#leaderBoard {
 /*the colour for the other half of the dual error messages (always on the right of text box)*/
 /* end specific to login and registration pages*/
 
-.grid_element {
-	  width: 200px;
-	  height:200px;
-	}
-	
-	.CMSButton {
-	display: inline-block;
-	float: none;
-	/*font-weight: bold;*/
+.CMSButton {
+    display: inline-block;
+    float: none;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -232,7 +206,7 @@ table#leaderBoard {
     padding: 5px 10px;
     font-size: 19px;
     line-height: 1.5;
-	}
+}
 /*for slide show*/
 
 .prev, .next {
@@ -304,15 +278,16 @@ table#leaderBoard {
     to {opacity: 1}
 }
 
+/*end for slide show*/
+
 .grid_element {
-  display: inline-block;
-  width: 400px;
-  height:400px;
+    display: inline-block;
+    width: 400px;
+    height:400px;
 }
 
 .cartBadge
-    {
-		
+{
     list-style-type: none;
     width:20px;
     height:20px;
@@ -323,25 +298,44 @@ table#leaderBoard {
     font-weight: bold;
     text-align:center;
     background:red;
-	vertical-align: top;
-    } 
-	
-	#banner {
-    margin-top: 39px;
-    margin-bottom: 50px;
-}
+    vertical-align: top;
+} 
 
 #Search{
-	width: 300px;
-	padding: 15px;
-	border: 1px solid #607d8b;
-	border-radius: 15px;
-	
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #607d8b;
+    border-radius: 15px;
+
 }
 #submit{
-	padding: 17px;
-	background: #607d8b;
-	border: 1px solid #607d8b;
-	color: White;
-	margin-left: -17px; 
+    padding: 17px;
+    background: #607d8b;
+    border: 1px solid #607d8b;
+    color: White;
+    margin-left: -17px; 
 }
+
+
+/*basket prototype*/
+table,th,td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 3px;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+button.delete {
+    font-weight: bold;
+    color: red;
+}
+
+
+img.addButtonImg{
+    width: 20px;
+    height: 20px;
+}
+/*end basket prototype*/
