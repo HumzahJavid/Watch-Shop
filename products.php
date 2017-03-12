@@ -8,28 +8,19 @@ outputHeader("Group 22 Watch Website - product");
 outputBodyTag();
 outputBannerNavigation("Watch Collections");
 ?>
-<!-- changes made to this page 
-the container is split into two parts so that I can have the content section (the text) stretched across entire screen
-and have the header and footer at 80 % in the center
--->
-
 <!-- Contents of the page -->
 <div id="content">
 
    <h1> Our collection of the <em>finest</em> watches we have to offer </h1>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!--<script src="productImages.js">
-    </script>-->
-		<style>
+	<style>
 	#container {
-	width:100%;
+		width:100%;
 	}
-	.grid_element {
-   width: 400px;
-	 height:400px;
-	}
+	</style>
+	<!-- increased width from default 80% to 100%, to allow for
+	easier viewing of the products -->
 	
-  </style>
     <div class="grid_element">
 	Hublot
         <img id="image1" src="images/product/1.png" style="width:100%;height:100%" onmouseover="swapImages(1)" onmouseout="restoreImages(1)" alt="Another image">
