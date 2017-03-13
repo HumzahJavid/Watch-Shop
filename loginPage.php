@@ -1,11 +1,11 @@
 <?php
 //Include the PHP functions to be used on the page 
 include('common.php');
-//outputs a BodyTag with onload 
+
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - Login");
+outputBodyTag();
 outputBannerNavigation("Login");
-outputBodyTag("checkLogin()");
 ?>
 
 <!-- Contents of the page -->
@@ -32,6 +32,7 @@ outputBodyTag("checkLogin()");
 <?php
 video("Watch");
 //chooses video (using filename ) and uses it as animated background
+lockLogin();
 outputFooter();
 //Output the footer
 ?>

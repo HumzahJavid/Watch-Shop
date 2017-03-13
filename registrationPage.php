@@ -1,15 +1,13 @@
 <?php
 //Include the PHP functions to be used on the page 
 include('common.php');
-//outputs a BodyTag with onload 
+ 
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - Registration");
 outputBodyTag();
 outputBannerNavigation("Register");
-//by luck I enclosed function in speech marks thus resolving fatal error message(call to undefined function)
 ?>
 <div id="content">
-    <script src="JS/banner.js"></script>
     <p>On this page you can register an account, all fields are required. You must observe the following rules:</p>
     <p>The username must be between 5 and 7 characters long</p>
     <p>The password must be between 7 and 12 characters long</p>
@@ -44,7 +42,6 @@ outputBannerNavigation("Register");
     <input type ="submit" value = "logout" onclick="logout()">
 
     <script src="JS/registrationPage.js"></script>
-    <script>updateBanner();</script>  
 </div> <!-- end content -->
 
 <?php

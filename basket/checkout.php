@@ -23,10 +23,9 @@ $db = $mongoClient->ecommerce;
  
 foreach ($cursor as $cust){
 $customer_ID = $cust['_id'];
+				echo 'CustomerID: ' . $cust["_id"] . ' 
+				Email: ' . $customer . '';
 }
-
-
-echo "<br> <br>  ";	
 
 //Extract the product IDs that were sent to the server
 $prodIDs= $_POST['prodIDs'];
@@ -45,12 +44,15 @@ for($i=0; $i<count($productArray); $i++){
 }
 
 	$product = $productArray[0]['id'];
+	$productName = $productArray[0]['name'];
 	$productCount = $productArray[0]['count'];
-	$uniqueProducts[] = array("id" => $product, "count" => $productCount);
+	
+	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount);
 	//store the first product (which will have the highest count of the first unique product)
 	
 for($i=0; $i<count($productArray); $i++){
 	$product = $productArray[$i]['id'];
+	$productName = $productArray[$i]['name'];
 	$productCount = $productArray[$i]['count'];
 	 $found = false;
 	 for ($j=0; $j<count($uniqueProducts); $j++) {
@@ -63,17 +65,16 @@ for($i=0; $i<count($productArray); $i++){
 	 if (!$found) {
 		 //if no duplicates were found, this is a uniqueProduct (with the correct count)
 		  
-		 $uniqueProducts[] = array("id" => $product, "count" => $productCount);
+		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount);
 		 //place the current uniqueProduct into uniqueProducts
 	 } 		
 }
-echo "<br> <br>
-
+echo "<br>
 <h1> Products sent to Server </h1>";
 
 
 for($i=0; $i<count($uniqueProducts); $i++){
-	echo '<p>Product ID: ' . $uniqueProducts[$i]['id'] . '.   Count: ' . $uniqueProducts[$i]['count'] . '</p>';
+	echo '<p>Product ID: ' . $uniqueProducts[$i]['id'] . ' Name: ' . $uniqueProducts[$i]['name'] . '  Count: ' . $uniqueProducts[$i]['count'] . '</p>';
 }
 
 

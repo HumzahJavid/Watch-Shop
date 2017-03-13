@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function outputHeader($title) {
 //Ouputs the header for the page
     echo '<!DOCTYPE html>
@@ -50,16 +50,34 @@ function outputBannerNavigation($pageName) {
         if ($linkNames[$x] == $pageName) {
             echo 'class="active" ';
         }
-        echo 'href="' . $linkAddresses[$x] . '">' . $linkNames[$x] . '</a></li>';
+        echo 'href="\\' . $linkAddresses[$x] . '">' . $linkNames[$x] . '</a></li>';
     }
     echo '</ul>
           </header> <!-- end header -->
           <div id="banner" class="notLoggedIn">
           </div> <!-- end banner div -->
-          <script src="/JS/banner.js"></script>
-          <script>updateBanner();</script>';
+          <script src="/JS/banner.js"></script>';
+		  bannerUpdate();
 }
 
+function bannerUpdate() {
+	if (isset($_SESSION['loggedInUserEmail'])){
+		$user = $_SESSION['loggedInUserEmail'];
+	echo '<script>updateBanner("' .$user.'");
+				</script>';
+	}
+	else {
+		echo '<script>updateBanner(null);</script>';
+	}
+}
+
+
+function lockLogin() {
+		if (isset($_SESSION['loggedInUserEmail'])){
+		$user = $_SESSION['loggedInUserEmail'];
+		echo  ' <script> document.getElementById("loginPara").innerHTML = "Hi '.$user.'" </script>';
+	}
+}
 //Outputs closing body tag and closing HTML tag
 function outputFooter() {
     echo '<div id="footer">
@@ -72,8 +90,7 @@ function outputFooter() {
 
 function dynamicSlides($nSlides) {
     for ($x = 1; $x <= $nSlides; $x++) {
-        echo '<img class="mySlides" src="images/slide/' . $x . '.jpg" style="width:100%;height:500px">';
-        /* echo '<img class="mySlides" src="images/slide/' . $x . '.jpg" style="width:100%">'; */
+        echo '<img class="mySlides" src="/images/slide/' . $x . '.jpg" style="width:100%;height:500px">';
     };
 }
 
@@ -98,7 +115,7 @@ function addBannerButtons() {
         <i class="fa fa-volume-off" aria-hidden="true"></i> Mute
     </button>
 
-    <script src="JS/videoMute.js">
+    <script src="/JS/videoMute.js">
     </script>
     ';
 }
@@ -122,7 +139,7 @@ function video($file) {
     ';
 
     echo '
-    <video autoplay loop preload = "auto" id = "bgvid" poster="images/videoMissing.png">
+    <video autoplay loop preload = "auto" id = "bgvid" poster="/images/videoMissing.png">
     <source src = "/images/' . $file . '.mp4" type = "video/mp4">
     </video>';
 

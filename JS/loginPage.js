@@ -4,20 +4,14 @@ function login() {
     var enteredEmail = document.getElementById("emailInput").value;
     var error = document.getElementById("loginFailure");
     blankFields(enteredUsername, enteredPassword, enteredEmail);
-   
     //get the user account as an object
    
     if ((userAccount.username === enteredUsername) && (userAccount.password === enteredPassword)) {
-       checkLogin();
-        //run checkLogin if user has sucessfully logged in (to lock other users out of login form)
         updateBanner(); //from banner.js
     } else {
         error.innerHTML = "username/password incorrect";
     }
 }
-
-
-
 
 function blankFields(username, password, email) {
     var userError = document.getElementById("usernameError");

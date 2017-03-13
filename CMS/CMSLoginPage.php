@@ -1,15 +1,11 @@
 <?php
 //Include the PHP functions to be used on the page 
 include('../common.php');
-//outputs a BodyTag with onload 
+
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - Login");
+outputBodyTag("");
 outputBannerNavigation("CMS - Login");
-outputBodyTag("checkLogin()");
-
-
-    session_start();
-    //Start session management
 	
 if (isset($_SESSION['loggedInAdminEmail'])){
 		$admin = $_SESSION['loggedInAdminEmail'];

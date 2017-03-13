@@ -18,7 +18,7 @@ function loadBasket(){
     var prodIDs = [];
     for(var i=0; i<basketArray.length; ++i){
         htmlStr += "Product name: " + basketArray[i].name + "<br>";
-        prodIDs.push({id: basketArray[i].id, count: 1});//Add to product array
+        prodIDs.push({id: basketArray[i].id, name: basketArray[i].name, count: 1});//Add to product array
     }
     //Add hidden field to form that contains stringified version of product ids.
     htmlStr += "<input type='hidden' name='prodIDs' value='" + JSON.stringify(prodIDs) + "'>";
