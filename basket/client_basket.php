@@ -24,7 +24,7 @@
                 echo '<td>' . $document["_id"] . "</td>";
                 echo '<td>' . $document["name"] . "</td>";
 				echo '<td>' . $document["quantity"] . "</td>";
-                echo '<td><button onclick=\'addToBasket("' . $document["_id"] . '", "' . $document["name"] . '", "' .--$document["quantity"].'")\'>';
+                echo '<td><button onclick=\'addToBasket("' . $document["_id"] . '", "' . $document["name"] . '", "' .$document["quantity"].'")\'>';
                 echo '<img class="addButtonImg" src="/images/addToBasket.png"></button></td>';
                 echo '</tr>';
             }

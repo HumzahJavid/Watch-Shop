@@ -8,7 +8,6 @@ outputBodyTag();
 outputBannerNavigation("Register");
 ?>
 <div id="content">
-    <script src="JS/banner.js"></script>
     <p>On this page you can register an account, all fields are required. You must observe the following rules:</p>
     <p>The username must be between 5 and 7 characters long</p>
     <p>The password must be between 7 and 12 characters long</p>
@@ -43,7 +42,6 @@ outputBannerNavigation("Register");
     <input type ="submit" value = "logout" onclick="logout()">
 
     <script src="JS/registrationPage.js"></script>
-    <script>updateBanner();</script>  
 </div> <!-- end content -->
 
 <?php
