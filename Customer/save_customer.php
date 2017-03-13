@@ -6,6 +6,7 @@ $mongoClient = new MongoClient();
 $db = $mongoClient->ecommerce;
 
 //Extract the customer details 
+$customerID = filter_input(INPUT_POST, 'customerID', FILTER_SANITIZE_STRING);
 $name= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -14,6 +15,7 @@ $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
 
 //Construct PHP array with data
 $customerData = [
+	"customerID" => $customerID,
     "username" => $name,
     "email" => $email,
     "password" => $password,
