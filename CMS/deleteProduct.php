@@ -1,5 +1,4 @@
 <?php
-
 $mongoClient = new MongoClient();
 //Connect to database
 
@@ -10,29 +9,16 @@ $collection = $db->products;
 
 $productID= filter_input(INPUT_POST, 'productID', FILTER_SANITIZE_STRING);
 $deleteQuantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_STRING);
-
-$findCriteria = [
-    "productID" => $productID, 
- ];
-//Create a PHP array with our search criteria
-
-$cursor = $collection->find($findCriteria);
-//Find all of the products that match this criteria (should only be one)
-
-foreach ($cursor as $field){
-$oldProductQuantity = $field['quantity'];
-}
-//get the oldProductQuantity
-
-$productQuantity = ($oldProductQuantity - $deleteQuantity);
-//calculate the new product quantity
+$newProductQuantity = ($deleteQuantity * -1);
 
 $Val = $collection->update(
     array('productID' => $productID),
     array(
-        '$set' => array("quantity" => $productQuantity),
+        '$inc' => array("quantity" => $newProductQuantity),
     )
 );
+//locate the product by the productID
+//decrement the quantity of that product by the amount specified in newProductQuantity (incrementing by a negative number);	
 
 if($Val['ok']==1){
 	echo 'Ok ' . $Val['n'] . ' documents deleted.';
