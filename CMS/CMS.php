@@ -16,8 +16,6 @@ outputBannerNavigation("CMS");
 	ADD Product
 			<br>
 			<form action="/CMS/addProduct.php" method="post">
-			 <input style="width:400px;height:20px" id="Search" type="text" name="ID" placeholder="Product ID">
-			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
 	        <br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="price" placeholder="Product Price">
@@ -26,7 +24,7 @@ outputBannerNavigation("CMS");
 			<br>
 	        <input style="width:400px;height:20px" id="Search" type="text" name="url" placeholder="Product Image URL">
 			<br>
-			<input style="width:400px;height:20px" id="Search" type="text" name="test" placeholder="Keywords">
+			<input style="width:400px;height:20px" id="Search" type="text" name="keyword" placeholder="Keywords">
 			<br>
 			<button type="submit" class="CMSButton" value="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -37,7 +35,7 @@ outputBannerNavigation("CMS");
 			VIEW Product/s
 			<br>
 			<form action="/CMS/viewProduct.php" method="post">
-	        <input style="width:400px;height:20px" id="Search" type="text" name="_id" placeholder="Product ID">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="productID" placeholder="Product ID">
 	        <br>
 		    <button type="submit" class="CMSButton" value=""> 	
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -50,15 +48,17 @@ outputBannerNavigation("CMS");
 			<br>
 						
 			<form action="/CMS/editProduct.php" method="post">
-			<input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
+			<input style="width:400px;height:20px" id="Search" type="text" name="productID" placeholder="Product ID">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Name">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
 	        <br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Price">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="price" placeholder="Product Price">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Quantity">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="quantity" placeholder="Product Quantity">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Image URL">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="url" placeholder="Product Image URL">
+			<br>
+			<input style="width:400px;height:20px" id="Search" type="text" name="keyword" placeholder="Keywords">
 			<br>
 			<button type="submit" class="CMSButton" value="" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -69,11 +69,10 @@ outputBannerNavigation("CMS");
 			<br>
 			DELETE Product/s
 			<br>
-			
 			<form action="/CMS/deleteProduct.php" method="post">
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="productID" placeholder="Product ID">
 	        <br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Quantity">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="quantity" placeholder="Product Quantity">
 			<br>
 		 <button type="submit" class="CMSButton" onclick="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -86,15 +85,15 @@ outputBannerNavigation("CMS");
 			<br>
 			
 			<form action="/CMS/viewCustomerOrder.php" method="post">
-			<input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product ID">
+			<input style="width:400px;height:20px" id="Search" type="text" name="productID" placeholder="Product ID">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Name">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
 	        <br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Price">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="price" placeholder="Product Price">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Quantity">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="quantity" placeholder="Product Quantity">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="search" placeholder="Product Image URL">
+	        <input style="width:400px;height:20px" id="Search" type="text" name="url" placeholder="Product Image URL">
 			<br>	
 			<button type="submit" class="CMSButton" value="" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
