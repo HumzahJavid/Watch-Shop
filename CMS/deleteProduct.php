@@ -1,9 +1,12 @@
 <?php
+
 $mongoClient = new MongoClient();
 //Connect to database
 
 $db = $mongoClient->ecommerce;
 //Select a database
+
+$collection = $db->products;
 
 $productID= filter_input(INPUT_POST, 'productID', FILTER_SANITIZE_STRING);
 $deleteQuantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_STRING);
@@ -13,34 +16,23 @@ $findCriteria = [
  ];
 //Create a PHP array with our search criteria
 
-$cursor = $db->products->find($findCriteria);
-//Find all of the customers that match this criteria
+$cursor = $collection->find($findCriteria);
+//Find all of the products that match this criteria (should only be one)
 
 foreach ($cursor as $field){
-$ID= $field['_id'];
-$productName = $field['name'];
-$productPrice = $field['price'];
-$oldProductQuantity = ($oldProductQuantity - $deleteQuantity);
-$url = $field['url'];
-$productKeyword = $field['keyword'];
+$oldProductQuantity = $field['quantity'];
 }
-//get all the information, reinsert it into mongoDB with different field for quantity.
+//get the oldProductQuantity
 
 $productQuantity = ($oldProductQuantity - $deleteQuantity);
 //calculate the new product quantity
 
-$dataArray = [
-    "_id" => new MongoId($ID), 
-	"productID" => $productID,
-    "name" => $productName, 
-    "price" => $productPrice,
-	"quantity" => $productQuantity,
-	"url" => $url,
-	"keyword" => $productKeyword
- ];
- //create product dataArray with a new product quantity
-
-$Val = $db->product->save($dataArray);
+$Val = $collection->update(
+    array('productID' => $productID),
+    array(
+        '$set' => array("quantity" => $productQuantity),
+    )
+);
 
 if($Val['ok']==1){
 	echo 'Ok ' . $Val['n'] . ' documents deleted.';
