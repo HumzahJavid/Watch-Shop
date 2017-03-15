@@ -1,4 +1,5 @@
 <?php 
+include('..\common.php');
 
 $mongoClient = new MongoClient();
 //Connect to database
@@ -11,22 +12,21 @@ $db = $mongoClient->ecommerce;
 $collection = $db->products;
 //Select a collection 
 
-$Id= filter_input(INPUT_POST, '_id', FILTER_SANITIZE_STRING);
+$productID= filter_input(INPUT_POST, '_id', FILTER_SANITIZE_STRING);
 $productName= filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $productPrice = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
 $productQuantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_STRING);
 $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_STRING);
+$id = filter_input(INPUT_POST, '_id', FILTER_SANITIZE_STRING);
 
 $dataArray = [
-    "_id" => new MongoId($Id), 
+	"productID" => $productID,
     "name" => $productName, 
     "price" => $productPrice,
 	"quantity" => $productQuantity,
-	"url" => $url
-	
+	"url" => $url,
+    "_id" => new MongoId($id)
  ];
- 
- var_dump($dataArray);
  
  $val = $collection -> save($dataArray);
  
@@ -38,11 +38,6 @@ else {
 }
 //Echo result back to user
 
-echo
-
 $mongoClient->close();
 //Close the connection
-	
-	
-	
 ?>

@@ -156,4 +156,18 @@ function searchbar(){
 
 	
 }
+function getID($collection) {
+	//returns a count (the newestID) for the number of documents in a collection  
+	$id = sprintf('%03d', ($collection->count()));
+	//formats it with leading zeroes (if necessary).
+	return $id;
+}
+
+function newID($collection) {
+	//returns a new ID for the document being added to a collection 
+	$id = sprintf('%03d', ($collection->count() + 1));
+	//counts the current number of documents in a collection, adds 1 to the count. 
+	//formats it with leading zeroes (if necessary).
+	return $id;
+}
 ?>

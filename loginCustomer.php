@@ -19,11 +19,16 @@
 	//Find all of the customers that match  this criteria
     
     if($cursor->count() == 0){
-        echo 'Email not recognized.';
-        return;
+        echo '<h1> Email not recognized <br>
+					Redirecting...</h1> ';
+					
+		header('Refresh: 3, url = /loginPage.php');
     }
     else if($cursor->count() > 1){
         echo 'Database error: Multiple customers have same email address.';
+        echo '<h1> Redirecting...</h1>';
+					
+		header('Refresh: 3, url = /loginPage.php');
         return;
     }
 	//Check that there is exactly one customer
@@ -41,7 +46,10 @@
     $_SESSION['loggedInUserEmail'] = $email;
     //Start session for this user
     
-    echo 'ok';  
+    echo '<h1>Login successful <br>
+					Redirecting...</h1> ';
+					
+	header('Refresh: 3, url = /index.php');
     //Inform web page that login is successful
    
     $mongoClient->close();

@@ -1,4 +1,5 @@
 <?php 
+include('..\common.php');
 
 $mongoClient = new MongoClient();
 //Connect to database
@@ -11,23 +12,21 @@ $db = $mongoClient->ecommerce;
 $collection = $db->products;
 //Select a collection 
 
+$productID = newID($collection);
 $productName= filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $productPrice = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
 $productQuantity = filter_input(INPUT_POST, 'quantity', FILTER_SANITIZE_STRING);
 $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_STRING);
-$keyword = filter_input(INPUT_POST, 'test', FILTER_SANITIZE_STRING);
+$keyword = filter_input(INPUT_POST, 'keyword', FILTER_SANITIZE_STRING);
 
 $dataArray = [ 
+	"productID" => $productID,
     "name" => $productName, 
     "price" => $productPrice,
 	"quantity" => $productQuantity,
 	"url" => $url,
-	"test" => $keyword
-	
+	"keyword" => $keyword
  ];
-
- 
- var_dump($dataArray);
  
  $val = $collection -> insert($dataArray);
  
