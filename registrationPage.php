@@ -39,8 +39,6 @@ outputBannerNavigation("Register");
 
     <input type ="submit" value="Erase details" onclick="eraseUsers()">
     <input type ="submit" value="View details" onclick="viewUsers()">
-    <input type ="submit" value = "logout" onclick="logout()">
-
     <script src="JS/registrationPage.js"></script>
 </div> <!-- end content -->
 

@@ -20,55 +20,45 @@ outputBannerNavigation("Watch Collections");
 	</style>
 	<!-- increased width from default 80% to 100%, to allow for
 	easier viewing of the products -->
+	<script src="/JS/basket.js"></script>
+	<?php
+	$mongoClient = new MongoClient();
+//Connect to MongoDB
+
+$db = $mongoClient->ecommerce;
+//Select a database
+
+$findCriteria = [
+   // "productID" => "001", 
+ ];
+//Create a PHP array with our search criteria
+
+$Products = $db->products->find($findCriteria);
+$index = 0;
+foreach($Products as $pro){
+	$ID = $pro['_id'];
+	$productName = $pro['name'];
+	$productPrice = $pro['price'];
+	$productQuantity = $pro['quantity'];
+	$url = $pro['url'];
 	
-    <div class="grid_element">
-	Hublot
-        <img id="image1" src="images/product/1.png" style="width:100%;height:100%" onmouseover="swapImages(1)" onmouseout="restoreImages(1)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Breitling
-        <img id="image2" src="images/product/2.png" style="width:100%;height:100%" onmouseover="swapImages(2)" onmouseout="restoreImages(2)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Cartier
-        <img id="image3" src="images/product/3.png" style="width:100%;height:100%" onmouseover="swapImages(3)" onmouseout="restoreImages(3)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Chanel
-		<img id="image4" src="images/product/4.png" style="width:100%;height:100%" onmouseover="swapImages(4)" onmouseout="restoreImages(4)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Hublot
-        <img id="image5" src="images/product/5.png" style="width:100%;height:100%" onmouseover="swapImages(5)" onmouseout="restoreImages(5)" alt="Another image"> 
-    </div>
-    <div class="grid_element">
-	IWC
-        <img id="image6" src="images/product/6.png" style="width:100%;height:100%" onmouseover="swapImages(6)" onmouseout="restoreImages(6)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Maurice Lacroix
-        <img id="image7" src="images/product/7.png" style="width:100%;height:100%" onmouseover="swapImages(7)" onmouseout="restoreImages(7)" alt="Another image">
-    </div>
-    <div class="grid_element">
-	Rolex
-        <img id="image8" src="images/product/8.png" style="width:100%;height:100%" onmouseover="swapImages(8)" onmouseout="restoreImages(8)" alt="Another image">  
-    </div>
-    <div class="grid_element">
-	Tag Hewer
-        <img id="image9" src="images/product/9.png" style="width:100%;height:100%" onmouseover="swapImages(9)" onmouseout="restoreImages(9)" alt="Another image">
-    </div>
-	  <div class="grid_element">
-	Zenith
-        <img id="image10" src="images/product/10.png" style="width:100%;height:100%" onmouseover="swapImages(10)" onmouseout="restoreImages(10)" alt="Another image">
-    </div>
-	  <div class="grid_element">
-	Omega
-        <img id="image11" src="images/product/11.png" style="width:100%;height:100%" onmouseover="swapImages(11)" onmouseout="restoreImages(11)" alt="Another image">
-    </div>
-	  <div class="grid_element">
-	G-Shock 
-        <img id="image12" src="images/product/12.png" style="width:100%;height:100%" onmouseover="swapImages(12)" onmouseout="restoreImages(12)" alt="Another image">
-	</div>
+	$index += 1;
+	$imageID = ('image' . $index); 
+	$infourl = str_replace("product","info",$url);
+ 
+ echo '<div class="grid_element">
+	      '. $productName .'
+         <img id="'. $imageID .'" src="' . $url . '" style="width:100%;height:100%" onmouseover="this.src = \''. $infourl .'\'" onmouseout="this.src = \''. $url .'\'" alt="Another image">
+		 price = £'. $productPrice .' quantity = '. $productQuantity .' <button class="CMSButton" onclick=\'addToBasket("' . $ID . '", "' . $productName . '", "' .$productQuantity.'")\'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <i class="fa fa-plus"></i> <i class="fa fa-shopping-cart"></i>
+		</button>
+                
+    </div>';
+}            
+$mongoClient->close();
+?>
+        <div id="basketDiv"></div>
+		
 	    <script src="JS/products.js"></script>
 </div>
 

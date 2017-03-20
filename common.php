@@ -103,13 +103,25 @@ function dynamicBullets($nSlides) {
 
 function addBannerButtons() {
 
+if(isset($_SESSION["loggedInUserEmail"])) {
     echo'
-    <button type="button" class="button" onclick="shoppingCartButtonClick()">
+	<form action ="/logout.php" method="post">
+	<button type="submit" class="button">
+        Logout
+    </button>
+</form>';
+} 
+	
+	echo '<form action="checkout.php" method="post">
+    <button type="submit" class="button" onclick="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-shopping-cart"></i>
 		<!--<li class="cartBadge">1</li>-->
-		</span> Shopping Cart
+		 Shopping Cart
     </button>
+	
+		
+	</form>
     <button type="button" class="button" id="mutebutton" onclick="muteButtonClick()">
 
         <i class="fa fa-volume-off" aria-hidden="true"></i> Mute

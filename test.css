@@ -284,6 +284,7 @@ table#leaderBoard {
     display: inline-block;
     width: 400px;
     height:400px;
+	margin-bottom: 100px;
 }
 
 .cartBadge

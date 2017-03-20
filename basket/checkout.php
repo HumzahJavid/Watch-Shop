@@ -1,12 +1,18 @@
 <?php
+//Include the PHP functions to be used on the page 
+include('/common.php');
 
-session_start();
+//Output header and navigation 
+outputHeader("Group 22 Watch Website - CMS");
+outputBodyTag();
 
+if(isset($_SESSION["loggedInUserEmail"])) {
+	
+	$customer = $_SESSION["loggedInUserEmail"];
+	
+outputBannerNavigation("$customer's Checkout page");
 
-$customer = $_SESSION["loggedInUserEmail"];
-echo "<h1>$customer's Checkout page</h1>";
-
-
+	
 $mongoClient = new MongoClient();
 //Connect to database
 
@@ -21,6 +27,10 @@ $db = $mongoClient->ecommerce;
  $cursor = $db->customers->find($findCriteria, $fields);
 
  
+echo '
+<!-- Contents of the page -->
+<div id="content">';
+
 foreach ($cursor as $cust){
 $customer_ID = $cust['_id'];
 				echo 'CustomerID: ' . $cust["_id"] . ' 
@@ -97,6 +107,19 @@ else {
 
 $mongoClient->close();
 //Close the connection
+echo '
+</div>';
+} else {
+	echo "<h1> Redirecting... </h1> 
+	customer is not logged in ";
+	header('Refresh: 3, url = /loginPage.php');
+}
 
-//for the customer order array, append the 
+
+video("Watch");
+//chooses video (using filename ) and uses it as animated background
+outputFooter();
+//Output the footer
+
+
 ?>
