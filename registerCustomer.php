@@ -43,7 +43,7 @@ $cursor = $db->customers->find($findCriteria);
 	if($returnVal['ok']==1){
 		echo '<h1> Registration successful <br>
 					Redirecting...</h1> ' ;
-		header('Refresh: 3, url = /loginPage.php');
+		//header('Refresh: 3, url = /loginPage.php');
 	} else {
 		echo 'Error adding customer';
 	}
@@ -52,7 +52,7 @@ $cursor = $db->customers->find($findCriteria);
  } else {
 		echo '<h1> Error: Email already exists <br>
 					Redirecting...</h1> ';
-		header('Refresh: 3, url = /registrationPage.php');
+		//header('Refresh: 3, url = /registrationPage.php');
 		//If the email already exists, redirect to registration page
  }
  

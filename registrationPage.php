@@ -14,7 +14,7 @@ outputBannerNavigation("Register");
     <p>The email must be a valid email address</p>
 
     <div id ="registrationPara">
-        <form action="registerCustomer.php" id="registrationDetails" method="post">
+        <id="registrationDetails" method="post">
             Username:<br>
             <span id="usernameError2" class="hidden"></span><input type="text" id="usernameInput" name="username" title="Enter a username" autofocus> <span id="usernameError" class="error"></span>
             <br>
@@ -27,7 +27,7 @@ outputBannerNavigation("Register");
             Phone number:<br>
             <span id="numberError2" class="hidden"></span><input type="text" id="numberInput" name="number" title="Enter a phonenumber"> <span id="numberError" class="error"></span>
             <br>
-            <input type ="submit" value="Register" title = "Register your details">
+            <input type ="button" value="Register" title = "Register your details" onclick="register()">
         </form>
 		
         <p id="result" class="error"></p>
@@ -39,7 +39,7 @@ outputBannerNavigation("Register");
 
     <input type ="submit" value="Erase details" onclick="eraseUsers()">
     <input type ="submit" value="View details" onclick="viewUsers()">
-    <script src="JS/registrationPage.js"></script>
+    <script src="JS/registerAJAX.js"></script>
 </div> <!-- end content -->
 
 <?php
