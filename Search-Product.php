@@ -12,11 +12,14 @@ $search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $findCriteria = [
     '$text' => [ '$search' => $search_strings], 
  ];
+
  
- 
- $Val = $db-> products -> find($findCriteria);
+$Val = $db->products-> find($findCriteria)->sort(array("price" => 1));
+	
+	
+
 try{
-    
+	
 echo "<h1>Results</h1>";
 
 foreach($Val as $pro){
@@ -27,17 +30,21 @@ foreach($Val as $pro){
    echo"<br>";
    echo " Product quantity: " . $pro['quantity'];
    echo"<br>";
+   echo"<br>";
+   echo " Product image: " . $pro['url'];
+   echo"<br>";
    echo "</p>";
-}
-    
+   echo'----------------------------------------------------';
+   echo'<br>';
 }
 
-catch(Exception $e){
-    echo'Error cannot identify the data please try again';
+}
+catch(Exception $e) {
+	
+	echo'Cannot identify the word that you wrote';	
 }
 
 //Close the connection
 $mongoClient->close();
- 
  
  ?>
