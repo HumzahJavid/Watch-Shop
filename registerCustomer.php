@@ -41,17 +41,14 @@ $cursor = $db->customers->find($findCriteria);
 	$returnVal = $collection->insert($dataArray);
 	//Add the new product to the database
 	if($returnVal['ok']==1){
-		echo '<h1> Registration successful <br>
-					Redirecting...</h1> ' ;
-		//header('Refresh: 3, url = /loginPage.php');
+		echo "Registration successful $email" ;
 	} else {
 		echo 'Error adding customer';
 	}
 	//Echo result back to user
 	
  } else {
-		echo '<h1> Error: Email already exists <br>
-					Redirecting...</h1> ';
+		echo 'Error: Email already exists';
 		//header('Refresh: 3, url = /registrationPage.php');
 		//If the email already exists, redirect to registration page
  }
