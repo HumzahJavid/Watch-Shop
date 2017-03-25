@@ -1,3 +1,13 @@
+function detectEnterKey(id) {
+    document.getElementById(id).onkeypress = function (e) {
+        if (e.keyCode === 13) {
+			validation();
+            return false;
+        }
+    };
+}
+detectEnterKey('registrationPara');
+//Allows user to press the enter key when typing in the registration text boxes 
 
 function validation(){
 	var visitorUsername = document.getElementById("usernameInput").value;
@@ -9,17 +19,15 @@ function validation(){
 	if (validInputLength) {
 		result.innerHTML = "";
 		register(); 
-		//run the register via AJAX
+		//register via AJAX
 	} else {
 		result.innerHTML = "invalid registration input, account will not be stored";
 	}
  
 }
 
-	
 function validateUsernameLength(username) {
     var length = username.length;
-	console.log("username :" + length);
     if (length == 0) {
         console.warn("username is missing");
         document.getElementById("usernameError").innerHTML = "*username is missing";
@@ -34,8 +42,6 @@ function validateUsernameLength(username) {
 
 function validatePasswordLength(password) {
     var length = password.length;
-	
-	console.log("password ERROr:" + length);
     if (length === 0) {
         console.warn("password is missing");
         document.getElementById("passwordError").innerHTML = "*password is missing";
@@ -50,8 +56,6 @@ function validatePasswordLength(password) {
 
 function validateEmailLength(email) {
     var length = email.length;
-	
-	console.log("email :" + length);
     if (length === 0) {
         console.warn("email is missing");
         document.getElementById("emailError").innerHTML = "*email is missing";
@@ -66,10 +70,7 @@ function validateEmailLength(email) {
 
 
 function validateNumberLength(number) {
-	
     var length = number.length;
-	
-	console.log("number :" + length);
     if (length === 0) {
         console.warn("number is missing");
         document.getElementById("numberError").innerHTML = "*number is missing";
@@ -87,7 +88,6 @@ function validateInput(username, password, email, number) {
     var validPassLength = validatePasswordLength(password);
     var validEmailLength = validateEmailLength(email);
     var validNumberLength = validateNumberLength(number);
-	console.log(validUserLength + " " + validPassLength + " " + validEmailLength + " " + validNumberLength);
     if (!validUserLength || !validPassLength || !validEmailLength || !validNumberLength) {
         return false;
     } else {
@@ -96,30 +96,24 @@ function validateInput(username, password, email, number) {
 }
 
 function register() {
-
-		
 	var request = new XMLHttpRequest();
-			
-	request.onload = function() {
-		
+
+	request.onload = function() {		
 		if(request.readyState == 4 && request.status == 200) {
 			var responseData =  request.responseText;
 			document.getElementById("result").innerHTML = responseData;
-			}
-			
-		else {
+			} else {
 			document.getElementById("result").innerHTML = "Error communicating with server: ";
-		}
+			}	
+	}//end onload
+	var username = document.getElementById("usernameInput").value;
+	var email = document.getElementById("emailInput").value;
+	var Password = document.getElementById("passwordInput").value;
+	var number = document.getElementById("numberInput").value;
 		
-		}
-		var username = document.getElementById("usernameInput").value;
-		var email = document.getElementById("emailInput").value;
-		var Password = document.getElementById("passwordInput").value;
-		var number = document.getElementById("numberInput").value;
+	request.open("POST", "registerCustomer.php", true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		
-		request.open("POST", "registerCustomer.php", true);
-		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		
-		request.send("username=" + username + "&email=" + email + "&password=" + Password + "&number=" + number);
+	request.send("username=" + username + "&email=" + email + "&password=" + Password + "&number=" + number);
 }
 
