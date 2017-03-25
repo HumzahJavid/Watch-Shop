@@ -7,8 +7,10 @@ function login() {
 		if(request.readyState == 4 && request.status == 200) {
 			var responseData =  request.responseText;
 			if(responseData === "ok"){
+							
                             document.getElementById("loginPara").innerHTML = "<h1> </h1>";
                             document.getElementById("loginFailure").innerHTML = "";//Clear error messages
+							document.getElementById("logoutButton").innerHTML = '<form action ="/logout.php" method="post"> <button type="submit" class="button"> <a style="font-size : 29px;"/> Logout </a> </button> </form>';
 							updateBanner(email);
                         }
                         else {

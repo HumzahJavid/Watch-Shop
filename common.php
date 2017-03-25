@@ -105,26 +105,34 @@ function addBannerButtons() {
 
 if(isset($_SESSION["loggedInUserEmail"])) {
     echo'
-	<form action ="/logout.php" method="post">
+	<div id="logoutButton"> <form action ="/logout.php" method="post">
 	<button type="submit" class="button">
-        Logout
+    <a style="font-size : 29px;"/> Logout </a>
     </button>
-</form>';
-} 
+	</form>
+	</div>';
+}else{
+	echo '
+	<div id="logoutButton"> </div>';
+}
 	
 	echo '<form action="checkout.php" method="post">
     <button type="submit" class="button" onclick="">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <i class="fa fa-shopping-cart"></i>
-		<!--<li class="cartBadge">1</li>-->
-		 Shopping Cart
+        <i class="fa fa-shopping-cart fa-2x"></i>
+		<li id="cartBadge"></li>
+		<a style="font-size : 26px;"/> Shopping Cart </a>
     </button>
+	
+	<script src="/JS/basketBadge.js">
+	</script>
+	<script> loadBasketBadge();</script>
 	
 		
 	</form>
     <button type="button" class="button" id="mutebutton" onclick="muteButtonClick()">
 
-        <i class="fa fa-volume-off" aria-hidden="true"></i> Mute
+        <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i> <a style="font-size : 26px;"/> Mute </a> 
     </button>
 
     <script src="/JS/videoMute.js">

@@ -29,6 +29,8 @@ function loadBasket(){
     
     //Display nubmer of products in basket
     document.getElementById("basketDiv").innerHTML = htmlStr;
+	document.getElementById("cartBadge").innerHTML = basketArray.length;
+    window.scrollTo(0, 0);
 }
 
 //Adds an item to the basket
@@ -47,6 +49,7 @@ function addToBasket(prodID, prodName){
     
     //Store in local storage
     sessionStorage.basket = JSON.stringify(basketArray);
+	sessionStorage.basketCount = JSON.stringify(basketArray.length);
     
     //Display basket in page.
     loadBasket();      
