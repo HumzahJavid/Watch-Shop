@@ -14,7 +14,7 @@ function loadBasket(){
     
     //Build string with basket HTML
     var htmlStr = "<p>Number of items in basket: " + basketArray.length + "</p>";
-    var htmlStr = "<form action='checkout.php' method='post'>";
+    var htmlStr = "<form action='basket/checkout.php' method='post'>";
     var prodIDs = [];
     for(var i=0; i<basketArray.length; ++i){
         htmlStr += "Product name: " + basketArray[i].name + "<br>";
