@@ -1,4 +1,27 @@
 <?php
+function printKeyword($Val2) {
+foreach($Val2 as $keyword){
+   echo "<p>";
+   echo "ID: " . $keyword['_id'];
+   echo"<br>";
+   echo "Keyword: ". $keyword['keyword'];
+   echo"<br>";
+   echo "Count: " . $keyword['count'];
+   echo"<br>";
+   echo "</p>";
+}	
+}
+
+function updateKeywordCount($collection, $keyword) {
+	//increment the count of the keyword by 1
+$collection ->update(
+    array('keyword' => $keyword),
+    array(
+        '$inc' => array("count" => 1)
+    )
+);
+}
+
 //Connect to MongoDB
 $mongoClient = new MongoClient();
 
@@ -12,7 +35,6 @@ $search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $findCriteria = [
     '$text' => [ '$search' => $search_strings], 
  ];
- 
  
  $Val = $db-> products -> find($findCriteria);
 try{
@@ -29,6 +51,27 @@ foreach($Val as $pro){
    echo"<br>";
    echo "</p>";
 }
+
+
+ $Val2 = $db-> keywords -> find($findCriteria);
+ $collection = $db -> keywords;
+foreach ($Val2 as $keyword) {
+   $kw = $keyword['keyword'];
+} //extract exact matching keyword
+
+ echo "Keyword Count before search:";
+printKeyword($Val2);
+//print keyword document (id, keyword and count)
+
+updateKeywordCount($collection, $kw);
+
+
+
+ echo "Keyword Count After search:";
+ printKeyword($Val2);
+//print keyword document (id, keyword and count)
+
+
     
 }
 
