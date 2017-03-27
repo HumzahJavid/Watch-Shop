@@ -9,7 +9,11 @@ outputBodyTag();
 outputBannerNavigation("Watch Collections");
 ?>
 <!-- Contents of the page -->
-<div id="content">
+<div id="content"">
+<h1> Recommedations </h1>
+
+<script src="recomendAJAX.js"></script>
+<div id="recommend"> </div>
 
    <h1> Our collection of the <em>finest</em> watches we have to offer </h1>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

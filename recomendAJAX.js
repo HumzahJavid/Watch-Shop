@@ -1,9 +1,6 @@
-//attempting to inject product using JS,
-//need to get the id from Object id,
-//considering using str split to sep id (php) from the JSON
-//response = id * JSON
-//where * is a delim
-function login() {
+window.addEventListener("load", recommendProduct);
+
+function recommendProduct() {
 	var request = new XMLHttpRequest();
 			
 	request.onload = function() {
