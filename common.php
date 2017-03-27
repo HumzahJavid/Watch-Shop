@@ -116,13 +116,22 @@ if(isset($_SESSION["loggedInUserEmail"])) {
 	<div id="logoutButton"> </div>';
 }
 	
-	echo '<form action="checkout.php" method="post">
-    <button type="submit" class="button" onclick="">
+	echo '
+		<button class="button" onclick="emptyBasket()">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<i class="fa fa-trash fa-2x"></i>
+		<a style="font-size : 26px;"/> Empty Basket </a> </button>
+	
+		<form action="basket/checkout.php" method="post">
+		<button type="submit" class="button">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-shopping-cart fa-2x"></i>
 		<li id="cartBadge"></li>
 		<a style="font-size : 26px;"/> Shopping Cart </a>
     </button>
+	<div id="hiddenInput"> </div>
+	<!-- this will contain the attached prodID array -->
+
 	
 	<script src="/JS/basketBadge.js">
 	</script>

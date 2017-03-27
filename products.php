@@ -56,9 +56,7 @@ foreach($Products as $pro){
     </div>';
 }            
 $mongoClient->close();
-?>
-        <div id="basketDiv"></div>
-		
+?>	
 	    <script src="JS/products.js"></script>
 </div>
 

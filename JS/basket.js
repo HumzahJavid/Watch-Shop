@@ -12,23 +12,14 @@ function loadBasket(){
         basketArray = JSON.parse(sessionStorage.basket);
     }
     
-    //Build string with basket HTML
-    var htmlStr = "<p>Number of items in basket: " + basketArray.length + "</p>";
-    var htmlStr = "<form action='basket/checkout.php' method='post'>";
     var prodIDs = [];
     for(var i=0; i<basketArray.length; ++i){
-        htmlStr += "Product name: " + basketArray[i].name + "<br>";
         prodIDs.push({id: basketArray[i].id, name: basketArray[i].name, count: 1});//Add to product array
     }
     //Add hidden field to form that contains stringified version of product ids.
-    htmlStr += "<input type='hidden' name='prodIDs' value='" + JSON.stringify(prodIDs) + "'>";
-    
-    //Add checkout and empty basket buttons
-    htmlStr += "<input type='submit' value='Checkout'></form>";
-    htmlStr += "<br><button onclick='emptyBasket()'>Empty Basket</button>";
-    
-    //Display nubmer of products in basket
-    document.getElementById("basketDiv").innerHTML = htmlStr;
+    document.getElementById("hiddenInput").innerHTML = "<input type='hidden' name='prodIDs' value='" + JSON.stringify(prodIDs) + "'>";
+	
+    //Display number of products in basket
 	document.getElementById("cartBadge").innerHTML = basketArray.length;
     window.scrollTo(0, 0);
 }
