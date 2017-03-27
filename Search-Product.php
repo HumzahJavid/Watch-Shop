@@ -53,26 +53,21 @@ foreach($Val as $pro){
 }
 
 
- $Val2 = $db-> keywords -> find($findCriteria);
- $collection = $db -> keywords;
+$Val2 = $db-> keywords -> find($findCriteria);
+$collection = $db -> keywords;
 foreach ($Val2 as $keyword) {
    $kw = $keyword['keyword'];
 } //extract exact matching keyword
 
- echo "Keyword Count before search:";
+echo "Keyword Count before search:";
 printKeyword($Val2);
 //print keyword document (id, keyword and count)
 
 updateKeywordCount($collection, $kw);
 
-
-
  echo "Keyword Count After search:";
  printKeyword($Val2);
 //print keyword document (id, keyword and count)
-
-
-    
 }
 
 catch(Exception $e){
