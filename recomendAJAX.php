@@ -61,10 +61,11 @@ function printProducts($collection, $keyword) {
    echo " Product kw: " . $pro['keyword'];
    echo"<br>";
    echo "</p>";
-}
-echo "break here<br><br>";
-*/foreach($cursor as $k => $row){
+}*/
+foreach($cursor as $k => $row){
     echo json_encode($row);
+	echo "*";
+	//delimits each JSON doc
 }
 }
 //Close the connection
