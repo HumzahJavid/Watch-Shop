@@ -19,8 +19,7 @@
 	//Find all of the customers that match  this criteria
     
     if($cursor->count() == 0){
-        echo 'Email not recognized <br>
-					Redirecting... ';
+        echo 'Email not recognized <br>';
     }
     else if($cursor->count() > 1){
         echo 'Database error: Multiple customers have same email address.';

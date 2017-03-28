@@ -49,8 +49,6 @@ $cursor = $db->customers->find($findCriteria);
 	
  } else {
 		echo 'Error: Email already exists';
-		//header('Refresh: 3, url = /registrationPage.php');
-		//If the email already exists, redirect to registration page
  }
  
 $mongoClient->close();
