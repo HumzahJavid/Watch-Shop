@@ -54,14 +54,16 @@ for($i=0; $i<count($productArray); $i++){
 }
 
 	$product = $productArray[0]['id'];
+	$productID = $productArray[0]['productID'];
 	$productName = $productArray[0]['name'];
 	$productCount = $productArray[0]['count'];
 	
-	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount);
+	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID);
 	//store the first product (which will have the highest count of the first unique product)
 	
 for($i=0; $i<count($productArray); $i++){
 	$product = $productArray[$i]['id'];
+	$productID = $productArray[$i]['productID'];
 	$productName = $productArray[$i]['name'];
 	$productCount = $productArray[$i]['count'];
 	 $found = false;
@@ -75,20 +77,27 @@ for($i=0; $i<count($productArray); $i++){
 	 if (!$found) {
 		 //if no duplicates were found, this is a uniqueProduct (with the correct count)
 		  
-		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount);
+		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID);
 		 //place the current uniqueProduct into uniqueProducts
-	 } 		
-}
+		 
+		$newProductQuantity = ($productCount * -1);
+		$db->products->update(
+			array('productID' =>  $productID),
+			array('$inc' => array("quantity" => $newProductQuantity),)
+			);//end update
+		//update the product table by removing the number of products purchased from the product quantity
+	 }//end if no duplicates found 		
+}//end for 
 echo "<br>
 <h1> Products sent to Server </h1>";
 
 
 for($i=0; $i<count($uniqueProducts); $i++){
-	echo '<p>Product ID: ' . $uniqueProducts[$i]['id'] . ' Name: ' . $uniqueProducts[$i]['name'] . '  Count: ' . $uniqueProducts[$i]['count'] . '</p>';
+	echo '<p>Product ID: ' . $uniqueProducts[$i]['productID'] . ' Name: ' . $uniqueProducts[$i]['name'] . '  Count: ' . $uniqueProducts[$i]['count'] . '</p>';
 }
 
 
-$customerOrder = array("customer" => array("customer_ID" => $customer_ID, "email" => $customer, "products" => $uniqueProducts));
+$customerOrder = array("customer_ID" => $customer_ID, "email" => $customer, "products" => $uniqueProducts);
 //create the customerOrder document for the database
 
 

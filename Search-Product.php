@@ -1,10 +1,4 @@
 <?php
-function printKeyword($Val2) {
-foreach($Val2 as $keyword){
-   echo "Count: " . $keyword['count'];
-   echo "<br>";
-}	
-}
 
 function updateKeywordCount($collection, $keyword) {
 	//increment the count of the keyword by 1
@@ -41,15 +35,7 @@ foreach ($Val2 as $keyword) {
    $kw = $keyword['keyword'];
 } //extract exact matching keyword
 
-echo "Keyword Count before search:";
-printKeyword($Val2);
-//print keyword document (id, keyword and count)
-
 updateKeywordCount($collection, $kw);
-
- echo "Keyword Count After search:";
- printKeyword($Val2);
-//print keyword document (id, keyword and count)
 
 $products = $db->products-> find($findCriteria);
 $Val = $db->products-> find($findCriteria)->sort(array("price" => -1));
