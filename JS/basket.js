@@ -11,15 +11,17 @@ function loadBasket(){
     else {
         basketArray = JSON.parse(sessionStorage.basket);
     }
-    
+
     var prodIDs = [];
     for(var i=0; i<basketArray.length; ++i){
         prodIDs.push({id: basketArray[i].id, name: basketArray[i].name, count: 1});//Add to product array
     }
     //Add hidden field to form that contains stringified version of product ids.
+
     document.getElementById("hiddenInput").innerHTML = "<input type='hidden' name='prodIDs' value='" + JSON.stringify(prodIDs) + "'>";
 	
     //Display number of products in basket
+
 	document.getElementById("cartBadge").innerHTML = basketArray.length;
     window.scrollTo(0, 0);
 }
