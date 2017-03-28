@@ -35,6 +35,7 @@ $search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $findCriteria = [
     '$text' => [ '$search' => $search_strings], 
  ];
+<<<<<<< HEAD
  
  $Val = $db-> products -> find($findCriteria);
 try{
@@ -69,13 +70,105 @@ updateKeywordCount($collection, $kw);
  printKeyword($Val2);
 //print keyword document (id, keyword and count)
 }
+=======
+>>>>>>> refs/remotes/origin/Search-products-ordering
 
-catch(Exception $e){
-    echo'Error cannot identify the data please try again';
-}
+$products = $db->products-> find($findCriteria);
+$Val = $db->products-> find($findCriteria)->sort(array("price" => -1));
+
+		
 
 //Close the connection
 $mongoClient->close();
  
- 
  ?>
+ 
+<p>
+SORT BY
+<form action="#" method="post">
+<select name="selected">
+<option value="" >Select</option>
+<option value="price(ascending)">Price LOW to HIGH</option>
+<option value="price(descending)">Price HIGH to LOW</option>
+<option value="quantity(ascending)">Quantity LOW to HIGH</option>
+<option value="quantity(descending)">Quantity HIGH to LOW</option>
+<option value="alphabetical(ascending)">A-Z</option>
+<option value="alphabetical(descending)">Z-A</option>
+</select>
+<input type="submit" name="submit" value="Submit">
+</p>
+
+<?php
+
+function printProduct($Val) {
+	foreach($Val as $pro){
+    echo "<p>";
+    echo "Product name: " . $pro['name'];
+    echo"<br>";
+    echo " Product price: ". $pro['price'];
+    echo"<br>";
+    echo " Product quantity: " . $pro['quantity'];
+    echo"<br>";
+    echo"<br>";
+    echo " Product image: " . $pro['url'];
+    echo"<br>";
+    echo "</p>";
+    echo'----------------------------------------------------';
+    echo'<br>';
+}
+}
+
+if (isset($_POST['submit'])) {
+
+$dropDownMenu = $_POST['selected'];
+
+
+echo"$dropDownMenu";
+
+switch($dropDownMenu){
+	case "price(ascending)":
+	$Val = $products->sort(array("price" => 1));
+	printProduct($Val);
+
+	break;
+	case "price(descending)":
+	
+	$Val = $products->sort(array("price" => -1));
+	printProduct($Val);
+	
+	break;
+	case "quantity(ascending)":
+	
+	$Val = $products->sort(array("quantity" => 1));
+	printProduct($Val);
+	
+	break;
+	case "quantity(descending)":
+	
+	$Val = $products->sort(array("quantity" => -1));
+	printProduct($Val);
+	
+	break;
+	case "alphabetical(ascending)":
+	
+	$Val = $products->sort(array("name" => 1));
+	
+	printProduct($Val);
+	break;
+	case "alphabetical(descending)":
+	
+	$Val = $products->sort(array("name" => -1));
+	
+	printProduct($Val);
+	break;
+	
+	
+	default:
+	printProduct($Val);
+	break;	
+	} //end switch
+} // end if isset 
+else{
+printProduct($Val);
+}
+?>
