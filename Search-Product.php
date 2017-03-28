@@ -149,4 +149,7 @@ switch($dropDownMenu){
 else{
 printProduct($Val);
 }
+
+//Close the connection
+$mongoClient->close();
 ?>

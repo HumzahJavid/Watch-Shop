@@ -141,7 +141,6 @@ if(isset($_SESSION["loggedInUserEmail"])) {
 		
 	</form>
     <button type="button" class="button" id="mutebutton" onclick="muteButtonClick()">
-x`
         <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i> <a style="font-size : 26px;"/> Mute </a> 
     </button>
 

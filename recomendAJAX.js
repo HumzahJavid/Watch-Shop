@@ -8,7 +8,6 @@ function recommendProduct() {
 			var responseData =  request.responseText;
 			var recommendation = responseData.split("*");
 			for (i = 0; i < (recommendation.length - 1); i++) {
-			alert(recommendation[i]);
 			
 			var recommendedProduct = JSON.parse(recommendation[i]);
 			console.log(recommendedProduct.productID);
