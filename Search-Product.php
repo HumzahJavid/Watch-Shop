@@ -1,14 +1,8 @@
 <?php
 function printKeyword($Val2) {
 foreach($Val2 as $keyword){
-   echo "<p>";
-   echo "ID: " . $keyword['_id'];
-   echo"<br>";
-   echo "Keyword: ". $keyword['keyword'];
-   echo"<br>";
    echo "Count: " . $keyword['count'];
-   echo"<br>";
-   echo "</p>";
+   echo "<br>";
 }	
 }
 
@@ -35,23 +29,10 @@ $search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $findCriteria = [
     '$text' => [ '$search' => $search_strings], 
  ];
-<<<<<<< HEAD
  
  $Val = $db-> products -> find($findCriteria);
-try{
     
 echo "<h1>Results</h1>";
-
-foreach($Val as $pro){
-   echo "<p>";
-   echo "Product name: " . $pro['name'];
-   echo"<br>";
-   echo " Product price: ". $pro['price'];
-   echo"<br>";
-   echo " Product quantity: " . $pro['quantity'];
-   echo"<br>";
-   echo "</p>";
-}
 
 
 $Val2 = $db-> keywords -> find($findCriteria);
@@ -69,9 +50,6 @@ updateKeywordCount($collection, $kw);
  echo "Keyword Count After search:";
  printKeyword($Val2);
 //print keyword document (id, keyword and count)
-}
-=======
->>>>>>> refs/remotes/origin/Search-products-ordering
 
 $products = $db->products-> find($findCriteria);
 $Val = $db->products-> find($findCriteria)->sort(array("price" => -1));
