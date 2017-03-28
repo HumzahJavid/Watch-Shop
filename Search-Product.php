@@ -1,4 +1,21 @@
 <?php
+function printKeyword($Val2) {
+foreach($Val2 as $keyword){
+   echo "Count: " . $keyword['count'];
+   echo "<br>";
+}	
+}
+
+function updateKeywordCount($collection, $keyword) {
+	//increment the count of the keyword by 1
+$collection ->update(
+    array('keyword' => $keyword),
+    array(
+        '$inc' => array("count" => 1)
+    )
+);
+}
+
 //Connect to MongoDB
 $mongoClient = new MongoClient();
 
@@ -12,8 +29,29 @@ $search_strings = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_STRING);
 $findCriteria = [
     '$text' => [ '$search' => $search_strings], 
  ];
-
  
+ $Val = $db-> products -> find($findCriteria);
+    
+echo "<h1>Results</h1>";
+
+
+$Val2 = $db-> keywords -> find($findCriteria);
+$collection = $db -> keywords;
+foreach ($Val2 as $keyword) {
+   $kw = $keyword['keyword'];
+} //extract exact matching keyword
+
+echo "Keyword Count before search:";
+printKeyword($Val2);
+//print keyword document (id, keyword and count)
+
+updateKeywordCount($collection, $kw);
+
+ echo "Keyword Count After search:";
+ printKeyword($Val2);
+//print keyword document (id, keyword and count)
+
+$products = $db->products-> find($findCriteria);
 $Val = $db->products-> find($findCriteria)->sort(array("price" => -1));
 
 		
@@ -40,6 +78,24 @@ SORT BY
 
 <?php
 
+function printProduct($Val) {
+	foreach($Val as $pro){
+    echo "<p>";
+    echo "Product name: " . $pro['name'];
+    echo"<br>";
+    echo " Product price: ". $pro['price'];
+    echo"<br>";
+    echo " Product quantity: " . $pro['quantity'];
+    echo"<br>";
+    echo"<br>";
+    echo " Product image: " . $pro['url'];
+    echo"<br>";
+    echo "</p>";
+    echo'----------------------------------------------------';
+    echo'<br>';
+}
+}
+
 if (isset($_POST['submit'])) {
 
 $dropDownMenu = $_POST['selected'];
@@ -49,167 +105,48 @@ echo"$dropDownMenu";
 
 switch($dropDownMenu){
 	case "price(ascending)":
-	
-	$Val = $db->products-> find($findCriteria)->sort(array("price" => 1));
-	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
+	$Val = $products->sort(array("price" => 1));
+	printProduct($Val);
+
 	break;
 	case "price(descending)":
 	
-	$Val = $db->products-> find($findCriteria)->sort(array("price" => -1));
+	$Val = $products->sort(array("price" => -1));
+	printProduct($Val);
 	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
 	break;
 	case "quantity(ascending)":
 	
-	$Val = $db->products-> find($findCriteria)->sort(array("quantity" => 1));
+	$Val = $products->sort(array("quantity" => 1));
+	printProduct($Val);
 	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
 	break;
 	case "quantity(descending)":
 	
-	$Val = $db->products-> find($findCriteria)->sort(array("quantity" => -1));
+	$Val = $products->sort(array("quantity" => -1));
+	printProduct($Val);
 	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
 	break;
 	case "alphabetical(ascending)":
 	
-	$Val = $db->products-> find($findCriteria)->sort(array("name" => 1));
+	$Val = $products->sort(array("name" => 1));
 	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
+	printProduct($Val);
 	break;
 	case "alphabetical(descending)":
 	
-	$Val = $db->products-> find($findCriteria)->sort(array("name" => -1));
+	$Val = $products->sort(array("name" => -1));
 	
-	foreach($Val as $pro){
-    echo "<p>";
-    echo "Product name: " . $pro['name'];
-    echo"<br>";
-    echo " Product price: ". $pro['price'];
-    echo"<br>";
-    echo " Product quantity: " . $pro['quantity'];
-    echo"<br>";
-    echo"<br>";
-    echo " Product image: " . $pro['url'];
-    echo"<br>";
-    echo "</p>";
-    echo'----------------------------------------------------';
-    echo'<br>';
-}
+	printProduct($Val);
 	break;
 	
 	
 	default:
-	echo"yolo";
-	foreach($Val as $pro){
-   echo "<p>";
-   echo "Product name: " . $pro['name'];
-   echo"<br>";
-   echo " Product price: ". $pro['price'];
-   echo"<br>";
-   echo " Product quantity: " . $pro['quantity'];
-   echo"<br>";
-   echo"<br>";
-   echo " Product image: " . $pro['url'];
-   echo"<br>";
-   echo "</p>";
-   echo'----------------------------------------------------';
-   echo'<br>';
-   
-}
-	   break;
-	
-	
-}
-
-}
+	printProduct($Val);
+	break;	
+	} //end switch
+} // end if isset 
 else{
-
-foreach($Val as $pro){
-   echo "<p>";
-   echo "Product name: " . $pro['name'];
-   echo"<br>";
-   echo " Product price: ". $pro['price'];
-   echo"<br>";
-   echo " Product quantity: " . $pro['quantity'];
-   echo"<br>";
-   echo"<br>";
-   echo " Product image: " . $pro['url'];
-   echo"<br>";
-   echo "</p>";
-   echo'----------------------------------------------------';
-   echo'<br>';
-}
+printProduct($Val);
 }
 ?>

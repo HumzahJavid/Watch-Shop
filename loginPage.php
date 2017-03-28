@@ -22,7 +22,7 @@ outputBannerNavigation("Login");
     </div> 
     <p id ="loginFailure" class="error"></p>
 
-    <script src="JS/loginPage.js"></script>
+    <script src="JS/loginAJAX.js"></script>
 
     <p>Don't have an account? <a id="hyperlink" href="registrationPage.php" title="Click here to create an account">Sign up now</a></p>
 </div> <!-- end content -->
