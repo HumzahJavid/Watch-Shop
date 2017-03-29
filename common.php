@@ -39,8 +39,8 @@ function outputBannerNavigation($pageName) {
 
 
 //Array of pages to link to
-    $linkNames = array("Homepage", "Login", "Register", "Watch Collections");
-    $linkAddresses = array("index.php", "loginPage.php", "registrationPage.php", "products.php");
+    $linkNames = array("Homepage", "Login", "Register", "Watch Collections", "Settings");
+    $linkAddresses = array("index.php", "loginPage.php", "registrationPage.php", "products.php", "settings.php");
 
 //Output navigation
     for ($x = 0; $x < count($linkNames); $x++) {
@@ -133,7 +133,7 @@ if(isset($_SESSION["loggedInUserEmail"])) {
 	<div id="hiddenInput"> </div>
 	<!-- this will contain the attached prodID array -->
 
-	
+	<script src="/JS/basket.js"></script>
 	<script src="/JS/basketBadge.js">
 	</script>
 	<script> loadBasketBadge();</script>
@@ -177,7 +177,7 @@ function video($file) {
 
 function searchbar(){
 	echo'<center>
-	        <form action="Search-Product.php" method="get">
+	        <form action="/Search-Product.php" method="get">
 	        <input style="width:400px;height:20px;float:top" id="Search" type="text" name="name" placeholder="What are you looking for?">
 	        <input type="submit" value="GO" id="submit">	 
 	        </form>

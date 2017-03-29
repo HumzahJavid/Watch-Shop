@@ -24,7 +24,6 @@ outputBannerNavigation("Watch Collections");
 	</style>
 	<!-- increased width from default 80% to 100%, to allow for
 	easier viewing of the products -->
-	<script src="/JS/basket.js"></script>
 	<?php
 	$mongoClient = new MongoClient();
 //Connect to MongoDB

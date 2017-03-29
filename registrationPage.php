@@ -34,13 +34,9 @@ outputBannerNavigation("Register");
         <p id="result" class="error"></p>
 
         <p>Already have an account?
-            <a id="hyperlink" href="loginPage.html" title="Click here to login"> Click here to login </a></p>
+            <a id="hyperlink" href="loginPage.php" title="Click here to login"> Click here to login </a></p>
         <!-- this button takes you to login page, in case you are on reg page by mistake. -->
     </div>
-
-    <input type ="submit" value="Erase details" onclick="eraseUsers()">
-    <input type ="submit" value="View details" onclick="viewUsers()">
-
 </div> <!-- end content -->
 
 <?php
