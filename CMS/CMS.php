@@ -84,17 +84,9 @@ outputBannerNavigation("CMS");
 			VIEW Customer orders
 			<br>
 			
-			<form action="/CMS/viewCustomerOrder.php" method="post">
-			<input style="width:400px;height:20px" id="Search" type="text" name="productID" placeholder="Product ID">
+			<form action="/CMS/customer_order_management.php" method="post">
+			<input style="width:400px;height:20px" id="Search" type="text" name="email" placeholder="Customer email">
 			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="name" placeholder="Product Name">
-	        <br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="price" placeholder="Product Price">
-			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="quantity" placeholder="Product Quantity">
-			<br>
-	        <input style="width:400px;height:20px" id="Search" type="text" name="url" placeholder="Product Image URL">
-			<br>	
 			<button type="submit" class="CMSButton" value="" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-list"></i></span> View Customer Order
