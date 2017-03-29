@@ -14,7 +14,7 @@ function loadBasket(){
 
     var prodIDs = [];
     for(var i=0; i<basketArray.length; ++i){
-        prodIDs.push({id: basketArray[i].id, name: basketArray[i].name, count: 1, productID: basketArray[i].productID});//Add to product array
+        prodIDs.push({id: basketArray[i].id, name: basketArray[i].name, count: 1, productID: basketArray[i].productID, price: basketArray[i].price});//Add to product array
     }
     //Add hidden field to form that contains stringified version of product ids.
 
@@ -27,7 +27,7 @@ function loadBasket(){
 }
 
 //Adds an item to the basket
-function addToBasket(prodID, prodName, productID){
+function addToBasket(prodID, prodName, productID, price){
     //Get basket from local storage or create one if it does not exist
     var basketArray;
     if(sessionStorage.basket === undefined || sessionStorage.basket === ""){
@@ -38,7 +38,7 @@ function addToBasket(prodID, prodName, productID){
     }
     
     //Add product to basket
-    basketArray.push({id: prodID, name: prodName, productID: productID});
+    basketArray.push({id: prodID, name: prodName, productID: productID, price: price});
     
     //Store in local storage
     sessionStorage.basket = JSON.stringify(basketArray);

@@ -53,7 +53,7 @@ foreach($Products as $pro){
  echo '<div class="grid_element">
 	      '. $productName .'
          <img id="'. $imageID .'" src="' . $url . '" style="width:100%;height:100%" onmouseover="this.src = \''. $infourl .'\'" onmouseout="this.src = \''. $url .'\'" alt="Another image">
-		 price = £'. $productPrice .' quantity = '. $productQuantity .' <button class="CMSButton" onclick=\'addToBasket("' . $ID . '", "' . $productName . '", "' . $productID . '")\'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		 price = £'. $productPrice .' quantity = '. $productQuantity .' <button class="CMSButton" onclick=\'addToBasket("' . $ID . '", "' . $productName . '", "' . $productID . '", "' . $productPrice .'")\'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-plus"></i> <i class="fa fa-shopping-cart"></i>
 		</button>
                 

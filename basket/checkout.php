@@ -20,9 +20,9 @@ $db = $mongoClient->ecommerce;
 //Select a database
 
 
-    $fields = ['_id' => true];
+    $fields = ['_id' => true, 'customerID' => true];
 	$findCriteria = [ 'email' => $customer];
-	//only return the email (and the default '_id')
+	//only return the email, customerID (and the default '_id')
 	
  $cursor = $db->customers->find($findCriteria, $fields);
 
@@ -32,8 +32,8 @@ echo '
 <div id="content">';
 
 foreach ($cursor as $cust){
-$customer_ID = $cust['_id'];
-				echo 'CustomerID: ' . $cust["_id"] . ' 
+$customerID = $cust['customerID'];
+				echo 'CustomerID: ' . $cust["customerID"] . ' 
 				Email: ' . $customer . '';
 }
 
@@ -57,15 +57,26 @@ for($i=0; $i<count($productArray); $i++){
 	$productID = $productArray[0]['productID'];
 	$productName = $productArray[0]['name'];
 	$productCount = $productArray[0]['count'];
+	$productPrice = $productArray[0]['price'];
 	
-	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID);
+	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice);
 	//store the first product (which will have the highest count of the first unique product)
 	
+	$newProductQuantity = ($productCount * -1);
+		echo"<h1> $newProductQuantity prod quan  </h1>";
+		$db->products->update(
+			array('productID' =>  $productID),
+			array('$inc' => array("quantity" => $newProductQuantity))
+			);//end update
+		//update the product table by removing the number of products purchased from the product quantity
+	 
 for($i=0; $i<count($productArray); $i++){
 	$product = $productArray[$i]['id'];
 	$productID = $productArray[$i]['productID'];
 	$productName = $productArray[$i]['name'];
 	$productCount = $productArray[$i]['count'];
+	$productPrice = $productArray[$i]['price'];
+
 	 $found = false;
 	 for ($j=0; $j<count($uniqueProducts); $j++) {
 		 $uniqueProduct = $uniqueProducts[$j]['id'];
@@ -73,17 +84,18 @@ for($i=0; $i<count($productArray); $i++){
 			 $found = true;
 		 }
 	 }
-	 
+
 	 if (!$found) {
 		 //if no duplicates were found, this is a uniqueProduct (with the correct count)
-		  
-		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID);
+
+		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice);
 		 //place the current uniqueProduct into uniqueProducts
-		 
+
 		$newProductQuantity = ($productCount * -1);
+		echo"<h1> $newProductQuantity prod quan  </h1>";
 		$db->products->update(
 			array('productID' =>  $productID),
-			array('$inc' => array("quantity" => $newProductQuantity),)
+			array('$inc' => array("quantity" => $newProductQuantity))
 			);//end update
 		//update the product table by removing the number of products purchased from the product quantity
 	 }//end if no duplicates found 		
@@ -93,11 +105,11 @@ echo "<br>
 
 
 for($i=0; $i<count($uniqueProducts); $i++){
-	echo '<p>Product ID: ' . $uniqueProducts[$i]['productID'] . ' Name: ' . $uniqueProducts[$i]['name'] . '  Count: ' . $uniqueProducts[$i]['count'] . '</p>';
+	echo '<p>Product ID: ' . $uniqueProducts[$i]['productID'] . ' Name: ' . $uniqueProducts[$i]['name'] . '  Count: ' . $uniqueProducts[$i]['count'] . '  Price: ' . $uniqueProducts[$i]['price'] . '</p>';
 }
 
 
-$customerOrder = array("customer_ID" => $customer_ID, "email" => $customer, "products" => $uniqueProducts);
+$customerOrder = array("orderID" => newID($db->orders), "customerID" => $customerID, "email" => $customer, "products" => $uniqueProducts);
 //create the customerOrder document for the database
 
 

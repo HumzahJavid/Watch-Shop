@@ -33,7 +33,7 @@ function recommendProduct() {
 		 
 		 
 		'price = £'+price+' quantity = '+ quantity+
-		' <button class="CMSButton" onclick=\'addToBasket("'+ID+'", "'+name+'", "'+productID+'")\'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">'+
+		' <button class="CMSButton" onclick=\'addToBasket("'+ID+'", "'+name+'", "'+productID+'", "'+price+'")\'><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">'+
         '<i class="fa fa-plus"></i> <i class="fa fa-shopping-cart"></i>'+
 		'</button>' +
 			'</div>'; }
