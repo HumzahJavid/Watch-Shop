@@ -1,18 +1,16 @@
 <?php
-session_start();
-if(isset($_SESSION["loggedInUserEmail"])) {
-    $email = $_SESSION["loggedInUserEmail"];
-	
+
 //Connect to MongoDB
 $mongoClient = new MongoClient();
 
 //Select a database
 $db = $mongoClient->ecommerce;
 
-echo "<center> <h1> $email past orders </h1> </center>";
+$customerEmail= filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+
 
 $findCriteria = [
-       "email" => $email,
+       "email" => $customerEmail,
 
 ];
 
@@ -41,14 +39,21 @@ if($Val->count() > 0){
 else{
 	echo"Cannot find order";
 }
+echo"<br>";
+echo"<br>";
 
-//Close the connection
-$mongoClient->close();
-}else {
-	echo "<h1> Please login to access the settings page </h1>";
-	
-	header('Refresh: 3, url = /loginPage.php');
+foreach ($Val as $cust){
+    echo '<form action="/CMS/deleteItem.php" method="post">';
+    echo 'Order ID: <input type="text" name="name" value="' . $cust['orderID'] . '" required><br>';
+	echo '<input type="submit" value="delete">';
+    echo '</form><br>';
 }
+
+$mongoClient->close();
+//Close the connection
+
+
+
 
 
 
