@@ -59,11 +59,17 @@ for($i=0; $i<count($productArray); $i++){
 	$productCount = $productArray[0]['count'];
 	$productPrice = $productArray[0]['price'];
 	
-	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice);
+	$findCriteria = [ 'productID' => $productID];
+	$cursor = $db->products->find($findCriteria);
+	foreach ($cursor as $pro) {
+		$productKeyword = $pro['keyword'];
+		//can add additional fields (Price, name and count) via this loop instead of through the basket
+	}
+	
+	$uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice, "keyword" => $productKeyword);
 	//store the first product (which will have the highest count of the first unique product)
 	
 	$newProductQuantity = ($productCount * -1);
-		echo"<h1> $newProductQuantity prod quan  </h1>";
 		$db->products->update(
 			array('productID' =>  $productID),
 			array('$inc' => array("quantity" => $newProductQuantity))
@@ -76,7 +82,13 @@ for($i=0; $i<count($productArray); $i++){
 	$productName = $productArray[$i]['name'];
 	$productCount = $productArray[$i]['count'];
 	$productPrice = $productArray[$i]['price'];
-
+	
+	$findCriteria = [ 'productID' => $productID];
+	$cursor = $db->products->find($findCriteria);
+	foreach ($cursor as $pro) {
+		$productKeyword = $pro['keyword'];
+		//can add additional fields (Price, name and count) via this loop instead of through the basket
+	}
 	 $found = false;
 	 for ($j=0; $j<count($uniqueProducts); $j++) {
 		 $uniqueProduct = $uniqueProducts[$j]['id'];
@@ -88,11 +100,10 @@ for($i=0; $i<count($productArray); $i++){
 	 if (!$found) {
 		 //if no duplicates were found, this is a uniqueProduct (with the correct count)
 
-		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice);
+		 $uniqueProducts[] = array("id" => $product, "name" => $productName, "count" => $productCount, "productID" => $productID, "price" => $productPrice, "keyword" => $productKeyword);
 		 //place the current uniqueProduct into uniqueProducts
 
 		$newProductQuantity = ($productCount * -1);
-		echo"<h1> $newProductQuantity prod quan  </h1>";
 		$db->products->update(
 			array('productID' =>  $productID),
 			array('$inc' => array("quantity" => $newProductQuantity))

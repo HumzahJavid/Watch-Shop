@@ -6,20 +6,18 @@ $mongoClient = new MongoClient();
 //Select a database
 $db = $mongoClient->ecommerce;
 
-
-$orderId= filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_STRING);
+$orderId= filter_input(INPUT_POST, 'orderID', FILTER_SANITIZE_STRING);
 
 $findCriteria = [
-	   "ID" => $orderId
+	   "orderID" => $orderId
 ];
 
-$Val = $db->products->findOneAndDelete($findCriteria);
-
+$val = $db->orders->remove($findCriteria);
 if($val['ok']==1){
-    echo 'ok' ;
+    echo 'removed order' ;
 }
 else {
-    echo 'Error adding customer';
+    echo 'Error deleting order';
 }
 //Echo result back to user
 

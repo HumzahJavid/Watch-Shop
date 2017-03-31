@@ -44,7 +44,7 @@ echo"<br>";
 
 foreach ($Val as $cust){
     echo '<form action="/CMS/deleteItem.php" method="post">';
-    echo 'Order ID: <input type="text" name="name" value="' . $cust['orderID'] . '" required><br>';
+    echo 'Order ID: <input type="text" name="orderID" value="' . $cust['orderID'] . '" required><br>';
 	echo '<input type="submit" value="delete">';
     echo '</form><br>';
 }

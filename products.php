@@ -24,19 +24,16 @@ outputBannerNavigation("Watch Collections");
 	</style>
 	<!-- increased width from default 80% to 100%, to allow for
 	easier viewing of the products -->
-	<?php
-	$mongoClient = new MongoClient();
+<?php
+$mongoClient = new MongoClient();
 //Connect to MongoDB
 
 $db = $mongoClient->ecommerce;
 //Select a database
 
-$findCriteria = [
-   // "productID" => "001", 
- ];
-//Create a PHP array with our search criteria
+$Products = $db->products->find();
+//find all products
 
-$Products = $db->products->find($findCriteria);
 $index = 0;
 foreach($Products as $pro){
 	$ID = $pro['_id'];
