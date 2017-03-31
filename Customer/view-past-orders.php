@@ -22,21 +22,29 @@ $Val = $db->orders->find($findCriteria);
 echo"<h1>Result</h1>";
 
 if($Val->count() > 0){
-            echo '<table>';
-            echo '<tr><th>Order ID</th><th>Customer ID</th><th>Customer email</th><th>Product name</th><th>Count</th><th>Price</th></tr>';
-            foreach ($Val as $ord) {
-                echo '<tr>';
-				echo '<td>' . $ord["orderID"] . "</td>";
-				echo '<td>' . $ord["customerID"] . "</td>";
-                echo '<td>' . $ord["email"] . "</td>";
-				foreach ($ord["products"] as $pro) {
-					
-                echo '<td>' . $pro["name"] . "</td>";
-				echo '<td>' . $pro["count"] . "</td>";
-				}
-                echo '</tr>';
-            }
-            echo '</table>';
+    foreach($Val as $ord){
+    echo "<h2>";
+    echo "Order ID: " . $ord['orderID'];
+    echo"<br>";
+    echo " Customer ID: ". $ord['customerID'];
+    echo"<br>";
+    echo "Customer email: " . $ord['email'];
+	echo"</h2>";
+	echo"<br>";
+	foreach($ord['products'] as $pro){
+    echo " Product name: " . $pro['name'];
+	echo"<br>";
+	echo " Count: " . $pro['count'];
+	echo"<br>";
+	echo " Product price: " . $pro['price'];
+	echo"<br>";
+	echo"<br>";
+	echo"-------------------------------";
+	echo"<br>";
+	}
+    echo"<br>";
+    echo'<br>';
+}
 }
 else{
 	echo"Cannot find order";
