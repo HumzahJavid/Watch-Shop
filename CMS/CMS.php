@@ -2,11 +2,21 @@
 //Include the PHP functions to be used on the page 
 include('../common.php');
 
+if (!isset($_SESSION['loggedInAdminEmail'])){
+	header('Refresh: 3, url = /CMS/CMSLoginPage.php');
+	echo "<h1> Please login </h1>";
+	return;
+}
+//If the admin is not logged in, redirect to CMS login page
+?>
+
+<?php
 //Output header and navigation 
 outputHeader("Group 22 Watch Website - CMS");
 outputBodyTag();
 outputBannerNavigation("CMS");
 ?>
+
 <!-- Contents of the page -->
 <div id="content">
     <p>THE CMS</p>
@@ -91,8 +101,13 @@ outputBannerNavigation("CMS");
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <i class="fa fa-list"></i></span> View Customer Order
     </button>
-	</form
-			
+	</form>
+	<br> <br>
+	<form action ="/CMS/logoutCMS.php" method="post">
+		<button type="submit" class="CMSButton">
+		Logout
+		</button>
+	</form>	
 			
 </div> <!-- end content --> 
 
