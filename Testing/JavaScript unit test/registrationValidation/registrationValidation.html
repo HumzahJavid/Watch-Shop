@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> registrationForm validation tests
+	</title>
+
+	<!-- QUnit files we need to include -->
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.1.1.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
+
+	<!-- This file holds the code that we want to test -->
+	<script src="../../../JS/registerAJAX.JS"></script>
+	
+	<!--This file holds our tests-->
+	<script src="tests.js"></script>
+	
+	<!--necessary to run the tests, as the function modifies its innerHTML -->
+	<!-- these will appear at the top of the page, because an error message"
+	is inserted into these span elements by one of the two test functions --> 
+	<span id="usernameError2"></span>
+	<span id="usernameError"></span>
+	<span id="passwordError2"></span>
+	<span id="passwordError"></span>
+	
+	<span id="emailError2"></span>
+	<span id="emailError"></span>
+	
+	<span id="numberError2"></span>
+	<span id="numberError"></span>
+	
+</head>
+
+<body>
+	<!-- Results of tests displayed here -->
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+
+</body>
+</html>
