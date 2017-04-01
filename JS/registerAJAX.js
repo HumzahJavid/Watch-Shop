@@ -1,14 +1,3 @@
-function detectEnterKey(id) {
-    document.getElementById(id).onkeypress = function (e) {
-        if (e.keyCode === 13) {
-			validation();
-            return false;
-        }
-    };
-}
-detectEnterKey('registrationPara');
-//Allows user to press the enter key when typing in the registration text boxes 
-
 function validation(){
 	var visitorUsername = document.getElementById("usernameInput").value;
 	var visitorPassword = document.getElementById("passwordInput").value;
