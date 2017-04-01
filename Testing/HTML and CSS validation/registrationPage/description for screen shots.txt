@@ -1,0 +1,9 @@
+This is the HTML/CSS validation for loginPage 1/4
+This is the HTML/CSS validation for loginPage 2/4
+This is the HTML/CSS validation for loginPage 3/4
+This is the HTML/CSS validation for loginPage 4/4
+
+This is the HTML/CSS validation for registrationPage 1/4
+This is the HTML/CSS validation for registrationPage 2/4
+This is the HTML/CSS validation for registrationPage 3/4
+This is the HTML/CSS validation for registrationPage 4/4

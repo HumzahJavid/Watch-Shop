@@ -1,0 +1,12 @@
+testMuteButtonIcon: 
+Testing whether the mute button icon (initially clicked once to set it to mute) changes its icon and text 
+from umute to mute, this is done by checking its class name and text.
+
+testSearchProduct: 
+This test enters an incomplete keyword 'tag' in the product search bar. Tests if the result contains the correct product 'Tag Huer' 
+
+testSettingRedirect:
+This test attempts to access a button on the settings page whilst not logged in. Tests if the user is greeted with a redirect message upon attempted access.
+
+
+  
