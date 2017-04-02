@@ -58,8 +58,6 @@ foreach($Products as $pro){
 }            
 $mongoClient->close();
 ?>	
-
-	    <script src="JS/products.js"></script>
 </div>
 
 <?php
