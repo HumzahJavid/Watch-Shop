@@ -1,29 +1,33 @@
-function createTestBanner() {
-	//creates a banner div
-	var elem = document.createElement("div");
-    elem.className="notLoggedIn";
-	elem.id = "banner"
-	return elem;
+function resetBanner(){
+	banner.innerHTML = ("");
 }
+   
 
-QUnit.test("Test updateBanner 'h@a'", function(assert) {
-	var elem = createTestBanner();
-	
-    updateBanner("h@a", elem);
-	//sent when user logs in 
-	//modified version of the updateBanner function for QUnit
-	//original is in localhost/JS/banner.js
-	//this version accepts a banner and returns it due to issues with line 2 in banner.js
-	
-    assert.equal(elem.className, "loggedIn", "user is logged in");
+QUnit.test("Test updateBanner 'null' ", function(assert) {
+    updateBanner(null);
+	//sent when a user is logging out
+	assert.equal(banner.className, "notLoggedIn", "banner className = notLoggedIn");
+    assert.equal(banner.innerHTML, "You are not logged in. Your basket will not be saved", "banner text = ...not logged in...");
+	resetBanner();
 });
 
-QUnit.test("Test updateBanner ''", function(assert) {
-	var elem = createTestBanner();
+QUnit.test("Test updateBanner 'h@a' ", function(assert) {
+    updateBanner("h@a");
+	//sent when a user is logging in
+	assert.equal(banner.className, "loggedIn", "banner className = loggedIn");
+    assert.equal(banner.innerHTML, "Logged In: h@a", "banner text = Logged In: h@a");
+	resetBanner();
+});
+
+QUnit.test("Test updateBanner logging in then out ", function(assert) {
+    updateBanner("h@a");
+	//sent when a user is logging in
+	assert.equal(banner.className, "loggedIn", "banner className = loggedIn");
+    assert.equal(banner.innerHTML, "Logged In: h@a", "banner text = Logged In: h@a");
 	
-    updateBanner(null, elem);
+	updateBanner(null);
 	//sent when a user is logging out
-	//modified version of...
-	
-    assert.equal(elem.className, "notLoggedIn", "user is not logged in");
+	assert.equal(banner.className, "notLoggedIn", "banner className = notLoggedIn");
+    assert.equal(banner.innerHTML, "You are not logged in. Your basket will not be saved", "banner text = ...not logged in...");
+	resetBanner();
 });
