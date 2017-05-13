@@ -14,7 +14,3 @@ function muteButtonClick() {
         }
     }
 }
-
-function shoppingCartButtonClick() {
-    alert("you got mail in your shopping cart");
-}

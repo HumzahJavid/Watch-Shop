@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+          <html>
+          <head>
+          <title id="title1">Group 22 Watch Website - Registration</title>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+          <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+          <!-- My animated favicon only works in firefox! -->
+          <link rel="stylesheet" type="text/css" href="/test.css">
+          <!-- Link to external style sheet -->
+          </head><body><div id="container">
+         <header>
+         <font size=7> <b>Register</b></font>
+	<div id="logoutButton"> </div>
+		<button class="button" onclick="emptyBasket()">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<i class="fa fa-trash fa-2x"></i>
+		<a style="font-size : 26px;"/> Empty Basket </a> </button>
+	
+		<form action="basket/checkout.php" method="post">
+		<button type="submit" class="button">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <i class="fa fa-shopping-cart fa-2x"></i>
+		<li id="cartBadge"></li>
+		<a style="font-size : 26px;"/> Shopping Cart </a>
+    </button>
+
+	<div id="hiddenInput"> </div>
+	<!-- this will contain the attached prodID array -->
+
+	<script src="/JS/basket.js"></script>
+	<script src="/JS/basketBadge.js">
+	</script>
+	<script> loadBasketBadge();</script>
+	
+		
+	</form>
+    <button type="button" class="button" id="mutebutton" onclick="muteButtonClick()">
+        <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i> <a style="font-size : 26px;"/> Mute </a> 
+    </button>
+
+    <script src="/JS/videoMute.js">
+    </script>
+    <center>
+	        <form action="/Search-Product.php" method="get">
+	        <input style="width:400px;height:20px;float:top" id="Search" type="text" name="name" placeholder="What are you looking for?">
+	        <input type="submit" value="GO" id="submit">	 
+	        </form>
+	     </center> <ul id="navigationBar"><li><a href="\index.php">Homepage</a></li><li><a href="\loginPage.php">Login</a></li><li><a class="active" href="\registrationPage.php">Register</a></li><li><a href="\products.php">Watch Collections</a></li><li><a href="\settings.php">Settings</a></li></ul>
+          </header> <!-- end header -->
+          <div id="banner" class="notLoggedIn">
+          </div> <!-- end banner div -->
+          <script src="/JS/banner.js"></script><script>updateBanner(null);</script><div id="content">
+    <p>On this page you can register an account, all fields are required. You must observe the following rules:</p>
+    <p>The username must be between 5 and 7 characters long</p>
+    <p>The password must be between 7 and 12 characters long</p>
+    <p>The email must be a valid email address</p>
+
+    <div id ="registrationPara">
+       
+            Username:<br>
+            <span id="usernameError2" class="hidden"></span><input type="text" id="usernameInput" name="username" title="Enter a username" autofocus> <span id="usernameError" class="error"></span>
+            <br>
+            Password:<br>
+            <span id="passwordError2" class = "hidden"></span><input type="password" id="passwordInput" name="password" title="Enter a password">  <span id="passwordError" class="error"></span>
+            <br>
+            Email:<br>
+            <span id="emailError2" class = "hidden"></span><input type="email" id="emailInput" name="email" title="Enter an email address" required><span id="emailError" class="error"></span>
+            <br>
+            Phone number:<br>
+            <span id="numberError2" class="hidden"></span><input type="text" id="numberInput" name="number" title="Enter a phonenumber"> <span id="numberError" class="error"></span>
+            <br>
+			    <script src="JS/registerAJAX.js"></script>
+            <button onclick="validation()">Register</button>
+      
+		
+        <p id="result" class="error"></p>
+
+        <p>Already have an account?
+            <a id="hyperlink" href="loginPage.php" title="Click here to login"> Click here to login </a></p>
+        <!-- this button takes you to login page, in case you are on reg page by mistake. -->
+    </div>
+</div> <!-- end content -->
+
+
+        <style>
+            video#bgvid {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: -100;
+                background: url(polina.jpg) no - repeat;
+                background-size: cover;
+            }
+        </style>    
+    
+    <video autoplay loop preload = "auto" id = "bgvid" poster="/images/videoMissing.png">
+    <source src = "/images/Watch.mp4" type = "video/mp4">
+    </video><div id="footer">
+          <p> This website was made by Group 22 2017 </p>
+          </div> <!-- end footer div -->
+          </div> <!-- end container -->
+          </body>
+          </html>

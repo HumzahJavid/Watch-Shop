@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> video mute tests
+	</title>
+
+	<!-- QUnit files we need to include -->
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.1.1.css">
+	<script src="https://code.jquery.com/qunit/qunit-2.1.1.js"></script>
+
+	<!-- This file holds the code that we want to test -->
+	<script src="../../../JS/videoMute.js"></script>
+	
+	<!--This file holds our tests-->
+	<script src="test.js"></script>
+	
+</head>
+
+<body>
+	<!-- Results of tests displayed here -->
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	
+	<!-- video contains music-->
+	<video autoplay loop preload="auto" id = "bgvid" poster="/images/videoMissing.png" height="1" width = "1">
+    <source src = "/images/Watch.mp4" type = "video/mp4">
+    </video> 
+	
+	<!-- button which controls the mute property of the video-->
+	<button type="button" class="button" id="mutebutton" onclick="muteButtonClick()">
+        <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i> <a style="font-size : 26px;"/> Mute </a> 
+    </button>
+	
+</body>
+</html>
